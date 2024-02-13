@@ -15,6 +15,8 @@ class ProductDetailsPage extends StatelessWidget {
   final TextEditingController searchController = TextEditingController();
   int _selectedIndex = 0;
   RxInt qty = 0.obs;
+  String productText =
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum hasbeen the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
 
   ProductDetailsPage({super.key});
 
@@ -67,61 +69,107 @@ class ProductDetailsPage extends StatelessWidget {
             ),
           ),
           Gap(20),
-          Container(
-            child: Row(children: [
-              TitleText(
-                text: "HydroFlask",
-                color: Colors.black,
-                fontSize: 27,
-              ),
-              Spacer(),
-              IconButton(
-                onPressed: () {
-                  if (qty.value > 0) {
-                    qty.value--;
-                  }
-                },
-                icon: Icon(
-                  Icons.remove,
-                  size: 30,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: Container(
+              child: Row(children: [
+                TitleText(
+                  text: "HydroFlask",
+                  color: Colors.black,
+                  fontSize: 27,
                 ),
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(
-                    Colors.grey.withOpacity(.2),
+                Spacer(),
+                IconButton(
+                  onPressed: () {
+                    if (qty.value > 0) {
+                      qty.value--;
+                    }
+                  },
+                  icon: Icon(
+                    Icons.remove,
+                    size: 30,
                   ),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                      Colors.grey.withOpacity(.2),
+                    ),
+                  ),
+                  color: Colors.black,
                 ),
-                color: Colors.black,
-              ),
-              Gap(15),
-              Obx(
-                () => TitleText(
-                    text: "${qty.value}", color: Colors.black, fontSize: 24),
-              ),
-              Gap(15),
-              IconButton(
-                onPressed: () {
-                  qty.value++;
-                },
-                icon: Icon(
-                  Icons.add,
-                  size: 30,
+                Gap(15),
+                Obx(
+                  () => TitleText(
+                      text: "${qty.value}", color: Colors.black, fontSize: 24),
                 ),
-                style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(AppColors.gradientColor),
+                Gap(15),
+                IconButton(
+                  onPressed: () {
+                    qty.value++;
+                  },
+                  icon: Icon(
+                    Icons.add,
+                    size: 30,
+                  ),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        AppColors.gradientColor),
+                  ),
+                  color: Colors.white,
                 ),
-                color: Colors.white,
-              ),
-            ]),
+              ]),
+            ),
           ),
-          TitleText(
-            text: "Ksh. 400.00",
-            color: AppColors.gradientColor,
-            fontSize: 27,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: TitleText(
+              text: "Ksh. 400.00",
+              color: AppColors.gradientColor,
+              fontSize: 27,
+            ),
           ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: ReadMoreText(text: productText, maxLength: 350),
+          ),
+          Gap(30),
           CustomButton(onPressed: () {}, title: "Add to cart"),
         ],
       ),
+    );
+  }
+}
+
+class ReadMoreText extends StatelessWidget {
+  final String text;
+  final int maxLength;
+
+  RxBool isExpanded = false.obs;
+
+  ReadMoreText({super.key, required this.text, required this.maxLength});
+
+  @override
+  Widget build(BuildContext context) {
+    return Wrap(
+      children: [
+        Obx(() => Text(
+              isExpanded.value
+                  ? text
+                  : (text.length > maxLength
+                      ? text.substring(0, maxLength) + "..."
+                      : text),
+            )),
+        if (text.length > maxLength)
+          GestureDetector(
+              onTap: () {
+                isExpanded.value = !isExpanded.value;
+              },
+              child: Obx(() => Text(
+                    isExpanded.value ? "Read Less" : "Read More",
+                    style: TextStyle(
+                      color: AppColors.gradientColor,
+                    ),
+                  )))
+      ],
     );
   }
 }

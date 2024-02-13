@@ -99,9 +99,9 @@ class _EcoHomepageState extends State<EcoHomepage> {
                                 ...List.generate(
                                   3,
                                   (index) => Indicator(
-                                      isActive: _selectedIndex == index
-                                          ? true
-                                          : false),
+                                    isActive:
+                                        _selectedIndex == index ? true : false,
+                                  ),
                                 ),
                               ],
                             ),
