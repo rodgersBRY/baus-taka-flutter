@@ -1,9 +1,10 @@
+import 'package:baus_taka/widgets/custom_textfields.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import '../screens/redirect_page.dart';
-import '../screens/register_page.dart';
-import '../utils/app_colors.dart';
+import '../../utils/app_colors.dart';
+import './redirect_page.dart';
+import './register_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -14,6 +15,10 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool obscureText = true;
+  final TextEditingController emailController = TextEditingController();
+  final FocusNode emailFocusNode = FocusNode();
+  final TextEditingController passwordController = TextEditingController();
+  final FocusNode passwordFocusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -48,60 +53,18 @@ class _LoginPageState extends State<LoginPage> {
             Gap(30),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: "Your Email",
-                  hintStyle: TextStyle(color: AppColors.placeholderColor),
-                  prefixIcon:
-                      Icon(Icons.email, color: AppColors.placeholderColor),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(color: AppColors.placeholderColor),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: AppColors.placeholderColor),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: AppColors.placeholderColor),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                ),
+              child: EmailTextField(
+                editingController: emailController,
+                focusNode: emailFocusNode,
               ),
             ),
             Gap(20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: TextField(
-                obscureText: obscureText,
-                decoration: InputDecoration(
-                  hintText: "Password",
-                  hintStyle: TextStyle(color: AppColors.placeholderColor),
-                  prefixIcon:
-                      Icon(Icons.lock, color: AppColors.placeholderColor),
-                  suffixIcon: IconButton(
-                    icon: Icon(
-                        obscureText ? Icons.visibility_off : Icons.visibility,
-                        color: AppColors.placeholderColor),
-                    onPressed: () {
-                      setState(() {
-                        obscureText = !obscureText;
-                      });
-                    },
-                  ),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(color: AppColors.placeholderColor),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: AppColors.placeholderColor),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: AppColors.placeholderColor),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                ),
+              child: CustomPasswordTextField(
+                hintText: "Password",
+                editingController: passwordController,
+                focusNode: passwordFocusNode,
               ),
             ),
             Container(

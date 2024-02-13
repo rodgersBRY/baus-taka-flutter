@@ -1,9 +1,10 @@
 import 'dart:async';
 
-import 'package:baus_taka/screens/login_page.dart';
-import 'package:baus_taka/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+
+import '../../utils/app_colors.dart';
+import './login_page.dart';
 
 class IntroPage extends StatefulWidget {
   const IntroPage({super.key});

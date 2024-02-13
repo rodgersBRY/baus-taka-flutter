@@ -1,7 +1,7 @@
-import 'package:baus_taka/screens/number_verify_page.dart';
+import 'package:baus_taka/screens/ecoshop/homepage.dart';
 import 'package:flutter/material.dart';
 
-import './screens/splashscreen.dart';
+// import './screens/onboarding/splashscreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: PhoneVerifyPage(),
+      home: EcoHomepage(),
     );
   }
 }

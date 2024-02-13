@@ -1,7 +1,8 @@
+import 'package:baus_taka/widgets/custom_textfields.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import '../utils/app_colors.dart';
+import '../../utils/app_colors.dart';
 import './number_verify_page.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -12,6 +13,13 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  final TextEditingController emailController = TextEditingController();
+  final FocusNode emailFocusNode = FocusNode();
+  final TextEditingController passwordController = TextEditingController();
+  final FocusNode passwordFocusNode = FocusNode();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
+  final FocusNode confirmPasswordFocusNode = FocusNode();
   bool? isChecked = false;
   bool obscureText = true;
 
@@ -24,7 +32,6 @@ class _RegisterPageState extends State<RegisterPage> {
         child: Column(
           children: [
             Stack(
-              // alignment: Alignment.center,
               children: [
                 Container(
                   width: double.infinity,
@@ -65,95 +72,27 @@ class _RegisterPageState extends State<RegisterPage> {
             Gap(20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: "Your Email",
-                  hintStyle: TextStyle(color: AppColors.placeholderColor),
-                  prefixIcon:
-                      Icon(Icons.email, color: AppColors.placeholderColor),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(color: AppColors.placeholderColor),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: AppColors.placeholderColor),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: AppColors.placeholderColor),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                ),
+              child: EmailTextField(
+                editingController: emailController,
+                focusNode: emailFocusNode,
               ),
             ),
             Gap(20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: TextField(
-                obscureText: obscureText,
-                decoration: InputDecoration(
-                  hintText: "Password",
-                  hintStyle: TextStyle(color: AppColors.placeholderColor),
-                  prefixIcon:
-                      Icon(Icons.lock, color: AppColors.placeholderColor),
-                  suffixIcon: IconButton(
-                    icon: Icon(
-                        obscureText ? Icons.visibility_off : Icons.visibility,
-                        color: AppColors.placeholderColor),
-                    onPressed: () {
-                      setState(() {
-                        obscureText = !obscureText;
-                      });
-                    },
-                  ),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(color: AppColors.placeholderColor),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: AppColors.placeholderColor),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: AppColors.placeholderColor),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                ),
+              child: CustomPasswordTextField(
+                hintText: "Password",
+                editingController: passwordController,
+                focusNode: passwordFocusNode,
               ),
             ),
             Gap(20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: TextField(
-                obscureText: obscureText,
-                decoration: InputDecoration(
-                  hintText: "Confirm Password",
-                  hintStyle: TextStyle(color: AppColors.placeholderColor),
-                  prefixIcon:
-                      Icon(Icons.lock, color: AppColors.placeholderColor),
-                  suffixIcon: IconButton(
-                    icon: Icon(
-                        obscureText ? Icons.visibility_off : Icons.visibility,
-                        color: AppColors.placeholderColor),
-                    onPressed: () {
-                      setState(() {
-                        obscureText = !obscureText;
-                      });
-                    },
-                  ),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(color: AppColors.placeholderColor),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: AppColors.placeholderColor),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: AppColors.placeholderColor),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                ),
+              child: CustomPasswordTextField(
+                hintText: "Confirm Password",
+                editingController: confirmPasswordController,
+                focusNode: confirmPasswordFocusNode,
               ),
             ),
             Gap(20),
@@ -198,8 +137,8 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => PhoneVerifyPage()));
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => PhoneVerifyPage()));
                 },
                 child: Text(
                   "Register",

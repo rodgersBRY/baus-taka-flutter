@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import '../screens/redirect_page.dart';
-import '../utils/app_colors.dart';
+import './redirect_page.dart';
+import '../../utils/app_colors.dart';
 
 class OtpPage extends StatefulWidget {
   const OtpPage({super.key});

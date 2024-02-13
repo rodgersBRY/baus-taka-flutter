@@ -1,8 +1,8 @@
-import 'package:baus_taka/screens/otp_page.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import '../utils/app_colors.dart';
+import '../../utils/app_colors.dart';
+import './otp_page.dart';
 
 class PhoneVerifyPage extends StatefulWidget {
   const PhoneVerifyPage({super.key});
