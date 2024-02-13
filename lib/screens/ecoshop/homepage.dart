@@ -1,13 +1,13 @@
-import 'package:baus_taka/utils/app_colors.dart';
-import 'package:baus_taka/widgets/shared_widgets/bottom_navigation.dart';
-import 'package:baus_taka/widgets/shared_widgets/title_text.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
+import '../../utils/app_colors.dart';
 import '../../widgets/custom_searchbar.dart';
 import '../../widgets/ecoshop_widgets/category_item.dart';
 import '../../widgets/ecoshop_widgets/grid_item.dart';
+import '../../widgets/shared_widgets/bottom_navigation.dart';
 import '../../widgets/shared_widgets/slider_indicator.dart';
+import '../../widgets/shared_widgets/title_text.dart';
 
 class EcoHomepage extends StatefulWidget {
   EcoHomepage({super.key});
@@ -97,11 +97,12 @@ class _EcoHomepageState extends State<EcoHomepage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 ...List.generate(
-                                    3,
-                                    (index) => Indicator(
-                                        isActive: _selectedIndex == index
-                                            ? true
-                                            : false)),
+                                  3,
+                                  (index) => Indicator(
+                                      isActive: _selectedIndex == index
+                                          ? true
+                                          : false),
+                                ),
                               ],
                             ),
                             Gap(10),

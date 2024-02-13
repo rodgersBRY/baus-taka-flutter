@@ -1,3 +1,4 @@
+import 'package:baus_taka/widgets/shared_widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -71,85 +72,13 @@ class _OtpPageState extends State<OtpPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Expanded(
-                    child: Container(
-                      child: TextField(
-                        keyboardType: TextInputType.number,
-                        style: TextStyle(fontSize: 40),
-                        decoration: InputDecoration(
-                          border: UnderlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.black, width: 2.0)),
-                          focusedBorder: UnderlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.black, width: 2.0)),
-                          enabledBorder: UnderlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.black, width: 2.0)),
-                        ),
-                      ),
-                    ),
-                  ),
+                  Expanded(child: OTPTextField()),
                   Gap(10),
-                  Expanded(
-                    child: Container(
-                      child: TextField(
-                        keyboardType: TextInputType.number,
-                        style: TextStyle(fontSize: 40),
-                        decoration: InputDecoration(
-                          border: UnderlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.black, width: 2.0)),
-                          focusedBorder: UnderlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.black, width: 2.0)),
-                          enabledBorder: UnderlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.black, width: 2.0)),
-                        ),
-                      ),
-                    ),
-                  ),
+                  Expanded(child: OTPTextField()),
                   Gap(10),
-                  Expanded(
-                    child: Container(
-                      child: TextField(
-                        keyboardType: TextInputType.number,
-                        style: TextStyle(fontSize: 40),
-                        decoration: InputDecoration(
-                          border: UnderlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.black, width: 2.0)),
-                          focusedBorder: UnderlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.black, width: 2.0)),
-                          enabledBorder: UnderlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.black, width: 2.0)),
-                        ),
-                      ),
-                    ),
-                  ),
+                  Expanded(child: OTPTextField()),
                   Gap(10),
-                  Expanded(
-                    child: Container(
-                      child: TextField(
-                        keyboardType: TextInputType.number,
-                        style: TextStyle(fontSize: 40),
-                        decoration: InputDecoration(
-                          border: UnderlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.black, width: 2.0)),
-                          focusedBorder: UnderlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.black, width: 2.0)),
-                          enabledBorder: UnderlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.black, width: 2.0)),
-                        ),
-                      ),
-                    ),
-                  ),
+                  Expanded(child: OTPTextField()),
                 ],
               ),
             ),
@@ -173,33 +102,12 @@ class _OtpPageState extends State<OtpPage> {
               ],
             ),
             Gap(30),
-            Container(
-              width: double.maxFinite,
-              margin: const EdgeInsets.symmetric(horizontal: 10.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: AppColors.gradientColor,
-              ),
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => RedirectPage()));
-                },
-                child: Text(
-                  "Verify",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.transparent,
-                  elevation: 0,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                ),
-              ),
+            CustomButton(
+              onPressed: () {
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => RedirectPage()));
+              },
+              title: "Verify",
             ),
             Expanded(child: Container()),
             Image.asset("assets/bottom_people.png"),
@@ -209,6 +117,29 @@ class _OtpPageState extends State<OtpPage> {
               child: Image.asset("assets/bottom_banner.png", fit: BoxFit.cover),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class OTPTextField extends StatelessWidget {
+  const OTPTextField({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      keyboardType: TextInputType.number,
+      style: TextStyle(fontSize: 40),
+      decoration: InputDecoration(
+        border: UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.black, width: 2.0),
+        ),
+        focusedBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.black, width: 2.0),
+        ),
+        enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.black, width: 2.0),
         ),
       ),
     );

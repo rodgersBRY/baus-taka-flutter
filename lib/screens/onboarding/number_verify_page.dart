@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import '../../utils/app_colors.dart';
+import '../../widgets/shared_widgets/custom_button.dart';
 import './otp_page.dart';
 
 class PhoneVerifyPage extends StatefulWidget {
@@ -92,33 +93,12 @@ class _PhoneVerifyPageState extends State<PhoneVerifyPage> {
               ),
             ),
             Gap(10),
-            Container(
-              width: double.maxFinite,
-              margin: const EdgeInsets.symmetric(horizontal: 10.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: AppColors.gradientColor,
-              ),
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => OtpPage()));
-                },
-                child: Text(
-                  "Next",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.transparent,
-                  elevation: 0,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                ),
-              ),
+            CustomButton(
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => OtpPage()));
+              },
+              title: "Next",
             ),
             Expanded(child: Container()),
             Image.asset("assets/bottom_people.png"),

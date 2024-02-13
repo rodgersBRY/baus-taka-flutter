@@ -137,7 +137,7 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => PhoneVerifyPage()));
                 },
                 child: Text(

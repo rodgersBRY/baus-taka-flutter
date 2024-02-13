@@ -1,3 +1,4 @@
+import 'package:baus_taka/screens/ecoshop/homepage.dart';
 import 'package:baus_taka/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -13,6 +14,11 @@ class _RedirectPageState extends State<RedirectPage> {
   @override
   void initState() {
     super.initState();
+
+    Future.delayed(Duration(seconds: 1), () {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => EcoHomepage()));
+    });
   }
 
   @override

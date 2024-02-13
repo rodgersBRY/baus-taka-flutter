@@ -1,4 +1,5 @@
 import 'package:baus_taka/widgets/custom_textfields.dart';
+import 'package:baus_taka/widgets/shared_widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -92,33 +93,12 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
             ),
-            Container(
-              width: double.maxFinite,
-              margin: const EdgeInsets.symmetric(horizontal: 10.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: AppColors.gradientColor,
-              ),
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => RedirectPage()));
-                },
-                child: Text(
-                  "Login",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.transparent,
-                  elevation: 0,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                ),
-              ),
+            CustomButton(
+              onPressed: () {
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => RedirectPage()));
+              },
+              title: "Login",
             ),
             Container(
               margin: const EdgeInsets.symmetric(vertical: 40, horizontal: 10),

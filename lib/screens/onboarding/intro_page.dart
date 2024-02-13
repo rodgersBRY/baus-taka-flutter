@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import '../../utils/app_colors.dart';
+import '../../widgets/shared_widgets/slider_indicator.dart';
 import './login_page.dart';
 
 class IntroPage extends StatefulWidget {
@@ -36,38 +37,6 @@ class _IntroPageState extends State<IntroPage> {
               fontWeight: FontWeight.bold,
             ),
           ),
-          Gap(30),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                height: 10,
-                width: 30,
-                decoration: BoxDecoration(
-                  color: AppColors.gradientColor,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-              Gap(10),
-              Container(
-                width: 10,
-                height: 10,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.grey,
-                ),
-              ),
-              Gap(10),
-              Container(
-                width: 10,
-                height: 10,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.grey,
-                ),
-              ),
-            ],
-          )
         ],
       ),
     ),
@@ -89,38 +58,6 @@ class _IntroPageState extends State<IntroPage> {
               fontWeight: FontWeight.bold,
             ),
           ),
-          Gap(30),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                width: 10,
-                height: 10,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.grey,
-                ),
-              ),
-              Gap(10),
-              Container(
-                height: 10,
-                width: 30,
-                decoration: BoxDecoration(
-                  color: AppColors.gradientColor,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-              Gap(10),
-              Container(
-                width: 10,
-                height: 10,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.grey,
-                ),
-              ),
-            ],
-          )
         ],
       ),
     ),
@@ -142,38 +79,6 @@ class _IntroPageState extends State<IntroPage> {
               fontWeight: FontWeight.bold,
             ),
           ),
-          Gap(30),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                width: 10,
-                height: 10,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.grey,
-                ),
-              ),
-              Gap(10),
-              Container(
-                width: 10,
-                height: 10,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.grey,
-                ),
-              ),
-              Gap(10),
-              Container(
-                height: 10,
-                width: 30,
-                decoration: BoxDecoration(
-                  color: AppColors.gradientColor,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-            ],
-          )
         ],
       ),
     ),
@@ -210,14 +115,33 @@ class _IntroPageState extends State<IntroPage> {
           image: DecorationImage(
               image: AssetImage("assets/background.png"), fit: BoxFit.contain),
         ),
-        child: PageView(
+        child: PageView.builder(
+          itemCount: _pages.length,
           controller: _pageController,
           onPageChanged: (int page) {
             setState(() {
               _currentpage = page;
             });
           },
-          children: _pages,
+          itemBuilder: (context, index) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _pages[index],
+                Gap(60),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ...List.generate(
+                      3,
+                      (index) => Indicator(
+                          isActive: _currentpage == index ? true : false),
+                    ),
+                  ],
+                ),
+              ],
+            );
+          },
         ),
       ),
       floatingActionButton: Container(
