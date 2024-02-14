@@ -1,9 +1,8 @@
-import 'package:baus_taka/screens/ecoshop/checkout_page.dart';
-import 'package:baus_taka/screens/ecoshop/homepage.dart';
+import 'package:baus_taka/screens/ecoshop/my_orders_page.dart';
 import 'package:baus_taka/screens/ecoshop/payment_page.dart';
-import 'package:baus_taka/screens/ecoshop/processing_payment_page.dart';
-import 'package:baus_taka/screens/onboarding/redirect_page.dart';
 import 'package:flutter/material.dart';
+
+import 'screens/ecoshop/homepage.dart';
 
 // import './screens/onboarding/splashscreen.dart';
 

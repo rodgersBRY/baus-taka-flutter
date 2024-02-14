@@ -1,3 +1,4 @@
+import 'package:baus_taka/screens/ecoshop/order_successful_page.dart';
 import 'package:baus_taka/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -14,10 +15,10 @@ class _ProcessPaymentPageState extends State<ProcessPaymentPage> {
   void initState() {
     super.initState();
 
-    // Future.delayed(Duration(seconds: 1), () {
-    //   Navigator.pushReplacement(
-    //       context, MaterialPageRoute(builder: (context) => EcoHomepage()));
-    // });
+    Future.delayed(Duration(seconds: 3), () {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => OrderSuccessfulPage()));
+    });
   }
 
   @override
