@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:baus_taka/screens/ecoshop/my_cart.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
@@ -133,10 +134,15 @@ class ProductDetailsPage extends StatelessWidget {
             child: ReadMoreText(text: productText, maxLength: 350),
           ),
           Gap(30),
-          CustomButton(onPressed: () {}, title: "Add to cart"),
+          CustomButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => MyCartPage()));
+            },
+            title: "Add to cart",
+          ),
         ],
       ),
     );
   }
 }
-

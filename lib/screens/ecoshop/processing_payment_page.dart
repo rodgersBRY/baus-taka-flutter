@@ -2,24 +2,22 @@ import 'package:baus_taka/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import '../ecoshop/homepage.dart';
-
-class RedirectPage extends StatefulWidget {
-  const RedirectPage({super.key});
+class ProcessPaymentPage extends StatefulWidget {
+  const ProcessPaymentPage({super.key});
 
   @override
-  State<RedirectPage> createState() => _RedirectPageState();
+  State<ProcessPaymentPage> createState() => _ProcessPaymentPageState();
 }
 
-class _RedirectPageState extends State<RedirectPage> {
+class _ProcessPaymentPageState extends State<ProcessPaymentPage> {
   @override
   void initState() {
     super.initState();
 
-    Future.delayed(Duration(seconds: 1), () {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => EcoHomepage()));
-    });
+    // Future.delayed(Duration(seconds: 1), () {
+    //   Navigator.pushReplacement(
+    //       context, MaterialPageRoute(builder: (context) => EcoHomepage()));
+    // });
   }
 
   @override
@@ -37,10 +35,10 @@ class _RedirectPageState extends State<RedirectPage> {
           child: Center(
             child: Column(
               children: [
-                Image.asset("assets/redirect_image.png"),
+                Image.asset("assets/process_order.png"),
                 Gap(20),
                 Text(
-                  "Success",
+                  "Processing payment",
                   style: TextStyle(
                     color: AppColors.primaryColor,
                     fontSize: 40,
@@ -49,7 +47,7 @@ class _RedirectPageState extends State<RedirectPage> {
                 ),
                 Gap(20),
                 Text(
-                  "Redirecting you to the dashboard shortly",
+                  "You will receive an MPESA popup shortly",
                   style: TextStyle(
                     fontSize: 20,
                     color: AppColors.placeholderColor,

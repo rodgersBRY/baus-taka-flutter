@@ -1,5 +1,7 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:baus_taka/screens/ecoshop/checkout_page.dart';
+import 'package:baus_taka/screens/ecoshop/homepage.dart';
 import 'package:baus_taka/widgets/shared_widgets/custom_button.dart';
 import 'package:baus_taka/widgets/shared_widgets/outlined_button.dart';
 import 'package:flutter/material.dart';
@@ -219,13 +221,22 @@ class MyCartPage extends StatelessWidget {
               Expanded(child: Container()),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: CustomButton(onPressed: () {}, title: "Checkout"),
+                child: CustomButton(
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => CheckoutPage()));
+                  },
+                  title: "Checkout",
+                ),
               ),
               Gap(15),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: CustomOutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (context) => EcoHomepage()));
+                  },
                   title: "Continue Shopping",
                 ),
               ),

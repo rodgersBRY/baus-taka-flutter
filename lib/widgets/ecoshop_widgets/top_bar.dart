@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
+import '../../screens/ecoshop/my_cart.dart';
 import '../custom_searchbar.dart';
 
 class TopBar extends StatelessWidget {
@@ -40,7 +41,10 @@ class TopBar extends StatelessWidget {
           ),
           Gap(10),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => MyCartPage()));
+            },
             icon: Icon(
               Icons.shopping_cart,
               size: 30,
