@@ -1,14 +1,15 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:baus_taka/utils/app_colors.dart';
-import 'package:baus_taka/widgets/shared_widgets/custom_button.dart';
-import 'package:baus_taka/widgets/shared_widgets/title_text.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 
-import '../../widgets/custom_searchbar.dart';
+import '../../utils/app_colors.dart';
+import '../../widgets/ecoshop_widgets/readmore_text.dart';
+import '../../widgets/ecoshop_widgets/top_bar.dart';
+import '../../widgets/shared_widgets/custom_button.dart';
 import '../../widgets/shared_widgets/slider_indicator.dart';
+import '../../widgets/shared_widgets/title_text.dart';
 
 class ProductDetailsPage extends StatelessWidget {
   final FocusNode searchFocusNode = FocusNode();
@@ -139,89 +140,3 @@ class ProductDetailsPage extends StatelessWidget {
   }
 }
 
-class ReadMoreText extends StatelessWidget {
-  final String text;
-  final int maxLength;
-
-  RxBool isExpanded = false.obs;
-
-  ReadMoreText({super.key, required this.text, required this.maxLength});
-
-  @override
-  Widget build(BuildContext context) {
-    return Wrap(
-      children: [
-        Obx(() => Text(
-              isExpanded.value
-                  ? text
-                  : (text.length > maxLength
-                      ? text.substring(0, maxLength) + "..."
-                      : text),
-            )),
-        if (text.length > maxLength)
-          GestureDetector(
-              onTap: () {
-                isExpanded.value = !isExpanded.value;
-              },
-              child: Obx(() => Text(
-                    isExpanded.value ? "Read Less" : "Read More",
-                    style: TextStyle(
-                      color: AppColors.gradientColor,
-                    ),
-                  )))
-      ],
-    );
-  }
-}
-
-class TopBar extends StatelessWidget {
-  final FocusNode searchFocusNode;
-  final TextEditingController searchController;
-
-  TopBar(
-      {super.key,
-      required this.searchFocusNode,
-      required this.searchController});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Row(
-        children: [
-          IconButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            icon: Icon(
-              Icons.chevron_left,
-              size: 30,
-            ),
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
-            ),
-            color: Colors.black,
-          ),
-          Gap(10),
-          Expanded(
-            child: CustomSearchBar(
-              editingController: searchController,
-              focusNode: searchFocusNode,
-            ),
-          ),
-          Gap(10),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.shopping_cart,
-              size: 30,
-            ),
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
-            ),
-            color: Colors.black,
-          ),
-        ],
-      ),
-    );
-  }
-}
