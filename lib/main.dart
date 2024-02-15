@@ -1,5 +1,4 @@
-import 'package:baus_taka/screens/ecoshop/feedback_success_page.dart';
-import 'package:baus_taka/screens/ecoshop/my_orders_page.dart';
+import 'package:baus_taka/screens/ecoshop/category_list_page.dart';
 import 'package:flutter/material.dart';
 
 // import './screens/onboarding/splashscreen.dart';
@@ -17,10 +16,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'BAUS TAKA',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
         useMaterial3: true,
       ),
-      home: FeedbackSuccessPage(),
+      home: CategoryListPage(),
     );
   }
 }

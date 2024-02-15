@@ -1,14 +1,15 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:baus_taka/screens/ecoshop/payment_page.dart';
-import 'package:baus_taka/widgets/ecoshop_widgets/secondary_appbar.dart';
-import 'package:baus_taka/widgets/shared_widgets/custom_button.dart';
-import 'package:baus_taka/widgets/shared_widgets/title_text.dart';
+import 'package:baus_taka/screens/ecoshop/processing_payment_page.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 
 import '../../utils/app_colors.dart';
+import '../../widgets/ecoshop_widgets/secondary_appbar.dart';
+import '../../widgets/shared_widgets/custom_button.dart';
+import '../../widgets/shared_widgets/title_text.dart';
+import './payment_page.dart';
 
 class CheckoutPage extends StatefulWidget {
   CheckoutPage({super.key});
@@ -196,7 +197,10 @@ class _CheckoutPageState extends State<CheckoutPage> {
                     ),
                     Expanded(child: Container()),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => PaymentPage()));
+                      },
                       child: Container(
                         child: Row(
                           children: [
@@ -358,11 +362,91 @@ class _CheckoutPageState extends State<CheckoutPage> {
                   color: Colors.grey.withOpacity(.3)),
               Expanded(child: Container()),
               CustomButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => PaymentPage()));
-                  },
-                  title: "Place an order"),
+                title: "Place an order",
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: (context) {
+                        return Dialog(
+                          child: Container(
+                            padding: const EdgeInsets.all(15),
+                            height: 350,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            width: double.infinity,
+                            child: Column(
+                              children: [
+                                Center(
+                                  child: Text(
+                                    "MPESA",
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                Gap(20),
+                                Row(
+                                  children: [
+                                    Icon(Icons.chevron_right),
+                                    Gap(5),
+                                    Expanded(
+                                      child: Text(
+                                        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum hasbeen the industry's standard",
+                                        overflow: TextOverflow.clip,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Gap(10),
+                                Row(
+                                  children: [
+                                    Icon(Icons.chevron_right),
+                                    Gap(5),
+                                    Expanded(
+                                      child: Text(
+                                        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum hasbeen the industry's standard",
+                                        overflow: TextOverflow.clip,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Gap(15),
+                                Container(
+                                  width: 200,
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 5,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey[200],
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      "0789678564",
+                                      style: TextStyle(fontSize: 20),
+                                    ),
+                                  ),
+                                ),
+                                Gap(20),
+                                CustomButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pushReplacement(
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                ProcessPaymentPage()));
+                                  },
+                                  title: "PAY NOW",
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      });
+                },
+              ),
               Expanded(child: Container()),
             ],
           ),

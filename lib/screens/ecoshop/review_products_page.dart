@@ -6,8 +6,8 @@ import '../../utils/app_colors.dart';
 import '../../widgets/shared_widgets/title_text.dart';
 import './review_details_page.dart';
 
-class MyOrdersPage extends StatelessWidget {
-  const MyOrdersPage({super.key});
+class ReviewProductsPage extends StatelessWidget {
+  const ReviewProductsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class MyOrdersPage extends StatelessWidget {
           color: Colors.black,
         ),
         title: Text(
-          'My Orders',
+          'Review Products',
           style: TextStyle(
               color: AppColors.primaryColor, fontWeight: FontWeight.bold),
         ),
@@ -104,6 +104,7 @@ class MyOrdersPage extends StatelessWidget {
                     ),
                   ),
                   GestureDetector(
+                    behavior: HitTestBehavior.opaque,
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => ReviewDetailsPage()));
@@ -114,7 +115,8 @@ class MyOrdersPage extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.rate_review, color: AppColors.primaryColor),
+                          Icon(Icons.rate_review,
+                              color: AppColors.primaryColor),
                           Gap(10),
                           TitleText(
                             text: "Review",

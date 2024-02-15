@@ -6,8 +6,8 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 
 import '../../utils/app_colors.dart';
+import '../../widgets/custom_searchbar.dart';
 import '../../widgets/ecoshop_widgets/readmore_text.dart';
-import '../../widgets/ecoshop_widgets/top_bar.dart';
 import '../../widgets/shared_widgets/custom_button.dart';
 import '../../widgets/shared_widgets/slider_indicator.dart';
 import '../../widgets/shared_widgets/title_text.dart';
@@ -15,6 +15,7 @@ import '../../widgets/shared_widgets/title_text.dart';
 class ProductDetailsPage extends StatelessWidget {
   final FocusNode searchFocusNode = FocusNode();
   final TextEditingController searchController = TextEditingController();
+
   int _selectedIndex = 0;
   RxInt qty = 0.obs;
   String productText =
@@ -25,10 +26,49 @@ class ProductDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: Icon(
+            Icons.chevron_left,
+            size: 30,
+          ),
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+          ),
+          color: Colors.black,
+        ),
+        title: CustomSearchBar(
+          focusNode: searchFocusNode,
+          editingController: searchController,
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => MyCartPage()));
+            },
+            icon: Icon(
+              Icons.shopping_cart,
+              size: 30,
+              color: Colors.black,
+            ),
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+            ),
+            color: Colors.black,
+          ),
+        ],
+      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
+            width: double.infinity,
             padding: const EdgeInsets.only(top: 50.0),
             height: MediaQuery.of(context).size.height * .5,
             decoration: BoxDecoration(
@@ -44,10 +84,6 @@ class ProductDetailsPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                TopBar(
-                  searchController: searchController,
-                  searchFocusNode: searchFocusNode,
-                ),
                 Container(
                   width: 100,
                   decoration: BoxDecoration(
@@ -136,8 +172,8 @@ class ProductDetailsPage extends StatelessWidget {
           Gap(30),
           CustomButton(
             onPressed: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => MyCartPage()));
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => MyCartPage()));
             },
             title: "Add to cart",
           ),

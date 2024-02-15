@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import '../../utils/app_colors.dart';
 import '../../widgets/shared_widgets/custom_button.dart';
 import '../../widgets/shared_widgets/title_text.dart';
-import './processing_payment_page.dart';
 
 // ignore: must_be_immutable
 class PaymentPage extends StatelessWidget {
@@ -135,8 +134,7 @@ class PaymentPage extends StatelessWidget {
             Expanded(child: Container()),
             CustomButton(
               onPressed: () {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (context) => ProcessPaymentPage()));
+                Navigator.of(context).pop();
               },
               title: "Save & Exit",
             ),
