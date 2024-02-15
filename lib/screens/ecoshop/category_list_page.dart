@@ -3,7 +3,7 @@ import 'package:baus_taka/widgets/shared_widgets/title_text.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import '../../widgets/custom_searchbar.dart';
+import '../../widgets/shared_widgets/custom_searchbar.dart';
 import 'my_cart.dart';
 
 class CategoryListPage extends StatelessWidget {

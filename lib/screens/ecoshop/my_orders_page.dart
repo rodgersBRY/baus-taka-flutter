@@ -1,9 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import '../../utils/app_colors.dart';
 import '../../widgets/shared_widgets/title_text.dart';
+import '../../widgets/shared_widgets/two_widget_appbar.dart';
 import './review_details_page.dart';
 
 class MyOrdersPage extends StatelessWidget {
@@ -12,27 +12,7 @@ class MyOrdersPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          icon: Icon(
-            Icons.chevron_left,
-            size: 30,
-          ),
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
-          ),
-          color: Colors.black,
-        ),
-        title: Text(
-          'My Orders',
-          style: TextStyle(
-              color: AppColors.primaryColor, fontWeight: FontWeight.bold),
-        ),
-      ),
+      appBar: twoWidgetAppBar(title: "My Orders"),
       body: Container(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -114,7 +94,8 @@ class MyOrdersPage extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.rate_review, color: AppColors.primaryColor),
+                          Icon(Icons.rate_review,
+                              color: AppColors.primaryColor),
                           Gap(10),
                           TitleText(
                             text: "Review",

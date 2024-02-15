@@ -6,7 +6,7 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 
 import '../../utils/app_colors.dart';
-import '../../widgets/custom_searchbar.dart';
+import '../../widgets/shared_widgets/custom_searchbar.dart';
 import '../../widgets/ecoshop_widgets/readmore_text.dart';
 import '../../widgets/shared_widgets/custom_button.dart';
 import '../../widgets/shared_widgets/slider_indicator.dart';

@@ -1,12 +1,12 @@
 import 'dart:ui';
 
-import 'package:baus_taka/screens/blogging/blog_details_page.dart';
-import 'package:baus_taka/utils/app_colors.dart';
-import 'package:baus_taka/widgets/shared_widgets/title_text.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import '../../widgets/custom_searchbar.dart';
+import '../../utils/app_colors.dart';
+import '../../widgets/shared_widgets/custom_searchbar.dart';
+import '../../widgets/shared_widgets/title_text.dart';
+import './blog_details_page.dart';
 
 class BlogHomePage extends StatelessWidget {
   BlogHomePage({super.key});

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import '../../screens/ecoshop/my_cart.dart';
-import '../custom_searchbar.dart';
+import '../shared_widgets/custom_searchbar.dart';
 
 class TopBar extends StatelessWidget {
   final FocusNode searchFocusNode;

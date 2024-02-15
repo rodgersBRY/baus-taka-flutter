@@ -1,8 +1,9 @@
-import 'package:baus_taka/utils/app_colors.dart';
-import 'package:baus_taka/widgets/custom_searchbar.dart';
-import 'package:baus_taka/widgets/shared_widgets/title_text.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+
+import '../../utils/app_colors.dart';
+import '../../widgets/shared_widgets/custom_input_text.dart';
+import '../../widgets/shared_widgets/title_text.dart';
 
 // ignore: must_be_immutable
 class BlogDetailsPage extends StatelessWidget {
@@ -40,7 +41,7 @@ class BlogDetailsPage extends StatelessWidget {
                 //       .push(MaterialPageRoute(builder: (context) => MyCartPage()));
               },
               icon: Icon(
-                Icons.vertical_distribute_outlined,
+                Icons.more_vert_outlined,
                 size: 30,
                 color: Colors.black,
               ),
@@ -52,6 +53,7 @@ class BlogDetailsPage extends StatelessWidget {
           ],
         ),
         body: SingleChildScrollView(
+          physics: ScrollPhysics(),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -124,7 +126,7 @@ class BlogDetailsPage extends StatelessWidget {
                             child: Row(
                               children: [
                                 Icon(
-                                  Icons.heart_broken,
+                                  Icons.favorite_border,
                                 ),
                                 Gap(4),
                                 Text("738"),
@@ -162,11 +164,85 @@ class BlogDetailsPage extends StatelessWidget {
               ),
               Gap(10),
               Padding(
-                  padding: const EdgeInsets.only(left: 10.0),
-                  child: Text(
-                    productText,
-                    style: TextStyle(fontSize: 17),
-                  )),
+                padding: const EdgeInsets.only(left: 10.0),
+                child: Text(
+                  productText,
+                  style: TextStyle(fontSize: 17),
+                ),
+              ),
+              Container(
+                height: 1,
+                width: double.infinity,
+                margin:
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+                color: Colors.grey.withOpacity(.3),
+              ),
+              ListView.builder(
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: 7,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    minVerticalPadding: 15.0,
+                    leading: CircleAvatar(
+                      child: Text('JK'),
+                      radius: 30,
+                    ),
+                    title: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Column(
+                          children: [
+                            Text(
+                              "Mary Odoo",
+                              style: TextStyle(fontSize: 19),
+                            ),
+                            Text(
+                              "Awesome",
+                              style: TextStyle(fontSize: 15),
+                            ),
+                          ],
+                        ),
+                        Gap(15),
+                        Text(
+                          "4 mins ago",
+                          style: TextStyle(color: AppColors.placeholderColor),
+                        ),
+                      ],
+                    ),
+                    trailing: Container(
+                      width: 60,
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.favorite_border_outlined,
+                            size: 30,
+                          ),
+                          Gap(5),
+                          Text(
+                            "0",
+                            style: TextStyle(
+                                color: AppColors.placeholderColor,
+                                fontSize: 16),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              )
+              // Expanded(
+              //   child: ListView.builder(
+              //     itemCount: 3,
+              //     itemBuilder: (context, index) {
+              //       return ListTile(
+              //         leading: CircleAvatar(
+              //           child: Text('JK'),
+              //         ),
+              //       );
+              //     },
+              //   ),
+              // ),
             ],
           ),
         ),
@@ -176,13 +252,14 @@ class BlogDetailsPage extends StatelessWidget {
             children: [
               IconButton(
                 onPressed: () {},
-                icon: Icon(Icons.attachment),
+                icon: Icon(Icons.attach_file_outlined),
               ),
               Expanded(
-                child: CustomSearchBar(
-                    editingController: commentController,
-                    focusNode: commentFocusNode,
-                    hintText: "Comment here"),
+                child: CustomInputArea(
+                  editingController: commentController,
+                  focusNode: commentFocusNode,
+                  hintText: "Comment here",
+                ),
               ),
               IconButton(onPressed: () {}, icon: Icon(Icons.send)),
             ],

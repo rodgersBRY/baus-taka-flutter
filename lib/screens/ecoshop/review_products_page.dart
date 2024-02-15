@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 
 import '../../utils/app_colors.dart';
 import '../../widgets/shared_widgets/title_text.dart';
+import '../../widgets/shared_widgets/two_widget_appbar.dart';
 import './review_details_page.dart';
 
 class ReviewProductsPage extends StatelessWidget {
@@ -12,27 +13,7 @@ class ReviewProductsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          icon: Icon(
-            Icons.chevron_left,
-            size: 30,
-          ),
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
-          ),
-          color: Colors.black,
-        ),
-        title: Text(
-          'Review Products',
-          style: TextStyle(
-              color: AppColors.primaryColor, fontWeight: FontWeight.bold),
-        ),
-      ),
+      appBar: twoWidgetAppBar(title: "Review Products"),
       body: Container(
         padding: const EdgeInsets.all(8.0),
         child: Column(

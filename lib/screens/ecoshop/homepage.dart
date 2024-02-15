@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import '../../utils/app_colors.dart';
-import '../../widgets/custom_searchbar.dart';
+import '../../widgets/shared_widgets/custom_searchbar.dart';
 import '../../widgets/ecoshop_widgets/category_item.dart';
 import '../../widgets/ecoshop_widgets/grid_item.dart';
 import '../../widgets/shared_widgets/bottom_navigation.dart';
