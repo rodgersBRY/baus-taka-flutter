@@ -37,6 +37,7 @@ class TopBar extends StatelessWidget {
             child: CustomSearchBar(
               editingController: searchController,
               focusNode: searchFocusNode,
+              hintText: "Search",
             ),
           ),
           Gap(10),

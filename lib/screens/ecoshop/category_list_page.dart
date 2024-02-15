@@ -15,11 +15,12 @@ class CategoryListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 1,
         leading: IconButton(
-          onPressed: () {
-            // Navigator.of(context).pop();
-          },
+          onPressed: () {},
           icon: Icon(
             Icons.chevron_left,
             size: 30,
@@ -32,6 +33,7 @@ class CategoryListPage extends StatelessWidget {
         title: CustomSearchBar(
           focusNode: searchFocusNode,
           editingController: searchController,
+          hintText: "Search",
         ),
         actions: [
           IconButton(

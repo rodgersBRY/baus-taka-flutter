@@ -43,12 +43,13 @@ class _EcoHomepageState extends State<EcoHomepage> {
           title: CustomSearchBar(
             focusNode: searchFocusNode,
             editingController: searchController,
+            hintText: "Search",
           ),
           actions: [
             IconButton(
               onPressed: () {
                 Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => MyCartPage()));
+                    MaterialPageRoute(builder: (context) => MyCartPage()));
               },
               icon: Icon(
                 Icons.shopping_cart,

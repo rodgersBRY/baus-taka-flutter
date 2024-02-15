@@ -1,7 +1,5 @@
-import 'package:baus_taka/screens/ecoshop/homepage.dart';
+import 'package:baus_taka/screens/blogging/blog_homepage.dart';
 import 'package:flutter/material.dart';
-
-import './screens/ecoshop/category_list_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
         useMaterial3: true,
       ),
-      home: CategoryListPage(),
+      home: BlogHomePage(),
     );
   }
 }

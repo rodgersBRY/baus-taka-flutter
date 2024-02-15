@@ -45,6 +45,7 @@ class ProductDetailsPage extends StatelessWidget {
         title: CustomSearchBar(
           focusNode: searchFocusNode,
           editingController: searchController,
+          hintText: "Search",
         ),
         actions: [
           IconButton(
