@@ -1,7 +1,7 @@
-import 'package:baus_taka/screens/ecoshop/category_list_page.dart';
+import 'package:baus_taka/screens/ecoshop/homepage.dart';
 import 'package:flutter/material.dart';
 
-// import './screens/onboarding/splashscreen.dart';
+import './screens/ecoshop/category_list_page.dart';
 
 void main() {
   runApp(const MyApp());

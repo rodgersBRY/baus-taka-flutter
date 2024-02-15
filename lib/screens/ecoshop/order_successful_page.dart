@@ -1,3 +1,4 @@
+import 'package:baus_taka/screens/ecoshop/my_orders_page.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -42,7 +43,10 @@ class OrderSuccessfulPage extends StatelessWidget {
                 ),
                 Gap(20),
                 CustomOutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => MyOrdersPage()));
+                  },
                   title: "View Order",
                 ),
               ],

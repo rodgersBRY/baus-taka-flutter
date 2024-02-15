@@ -63,6 +63,7 @@ class CategoryListPage extends StatelessWidget {
                 itemCount: 17,
                 itemBuilder: (context, index) {
                   return Container(
+                    padding: const EdgeInsets.only(left: 15),
                     margin: const EdgeInsets.symmetric(vertical: 8),
                     height: 100,
                     child: Row(
