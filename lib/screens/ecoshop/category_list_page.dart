@@ -1,6 +1,7 @@
 import 'package:baus_taka/utils/app_colors.dart';
 import 'package:baus_taka/widgets/shared_widgets/title_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
 import '../../widgets/shared_widgets/custom_searchbar.dart';
@@ -41,10 +42,10 @@ class CategoryListPage extends StatelessWidget {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => MyCartPage()));
             },
-            icon: Icon(
-              Icons.shopping_cart,
-              size: 30,
-              color: Colors.black,
+            icon: SvgPicture.asset(
+              "assets/icons/shopping-cart-active.svg",
+              color: AppColors.primaryColor,
+              width: 40,
             ),
           ),
         ],

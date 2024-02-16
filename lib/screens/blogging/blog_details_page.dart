@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
 import '../../utils/app_colors.dart';
@@ -40,10 +41,9 @@ class BlogDetailsPage extends StatelessWidget {
                 //   Navigator.of(context)
                 //       .push(MaterialPageRoute(builder: (context) => MyCartPage()));
               },
-              icon: Icon(
-                Icons.more_vert_outlined,
-                size: 30,
-                color: Colors.black,
+              icon: SvgPicture.asset(
+                "assets/icons/vertical-dots.svg",
+                width: 30,
               ),
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
@@ -115,6 +115,7 @@ class BlogDetailsPage extends StatelessWidget {
                               children: [
                                 Icon(
                                   Icons.mode_comment_outlined,
+                                  size: 30,
                                 ),
                                 Gap(4),
                                 Text("2"),
@@ -127,6 +128,7 @@ class BlogDetailsPage extends StatelessWidget {
                               children: [
                                 Icon(
                                   Icons.favorite_border,
+                                  size: 30,
                                 ),
                                 Gap(4),
                                 Text("738"),
@@ -137,7 +139,10 @@ class BlogDetailsPage extends StatelessWidget {
                           Container(
                             child: Row(
                               children: [
-                                Icon(Icons.share),
+                                SvgPicture.asset(
+                                  "assets/icons/share.svg",
+                                  width: 30,
+                                ),
                               ],
                             ),
                           )

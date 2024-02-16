@@ -1,9 +1,9 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
-import '../../utils/app_colors.dart';
 import '../../widgets/shared_widgets/custom_searchbar.dart';
 import '../../widgets/shared_widgets/title_text.dart';
 import './blog_details_page.dart';
@@ -42,10 +42,9 @@ class BlogHomePage extends StatelessWidget {
               // Navigator.of(context)
               //     .push(MaterialPageRoute(builder: (context) => MyCartPage()));
             },
-            icon: Icon(
-              Icons.fireplace_sharp,
-              size: 30,
-              color: Colors.black,
+            icon: SvgPicture.asset(
+              "assets/icons/fire.svg",
+              width: 30,
             ),
           ),
         ],
@@ -169,8 +168,9 @@ class BlogHomePage extends StatelessWidget {
                                     child: Row(
                                       children: [
                                         Icon(
-                                          Icons.heart_broken,
+                                          Icons.favorite_outline,
                                           color: Colors.white,
+                                          size: 30,
                                         ),
                                         Gap(4),
                                         Text(
@@ -189,6 +189,7 @@ class BlogHomePage extends StatelessWidget {
                                         Icon(
                                           Icons.mode_comment_outlined,
                                           color: Colors.white,
+                                          size: 30,
                                         ),
                                         Gap(4),
                                         Text(
@@ -205,8 +206,9 @@ class BlogHomePage extends StatelessWidget {
                                     child: Row(
                                       children: [
                                         Icon(
-                                          Icons.share,
+                                          Icons.share_outlined,
                                           color: Colors.white,
+                                          size: 30,
                                         ),
                                         Gap(4),
                                         Text(
@@ -223,17 +225,23 @@ class BlogHomePage extends StatelessWidget {
                             ),
                             Row(
                               children: [
-                                Text("Admin",
-                                    style: TextStyle(
-                                        color: AppColors.placeholderColor)),
+                                Text(
+                                  "Admin",
+                                  style: TextStyle(
+                                      color: Colors.white.withOpacity(.7)),
+                                ),
                                 Gap(3),
-                                Text("|",
-                                    style: TextStyle(
-                                        color: AppColors.placeholderColor)),
+                                Text(
+                                  "|",
+                                  style: TextStyle(
+                                      color: Colors.white.withOpacity(.7)),
+                                ),
                                 Gap(3),
-                                Text("3 days ago",
-                                    style: TextStyle(
-                                        color: AppColors.placeholderColor)),
+                                Text(
+                                  "3 days ago",
+                                  style: TextStyle(
+                                      color: Colors.white.withOpacity(.7)),
+                                ),
                               ],
                             )
                           ],

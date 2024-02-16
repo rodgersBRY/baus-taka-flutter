@@ -1,9 +1,9 @@
-import 'package:baus_taka/widgets/shared_widgets/custom_button.dart';
-import 'package:baus_taka/widgets/shared_widgets/custom_textfields.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import '../../utils/app_colors.dart';
+import '../../widgets/shared_widgets/custom_button.dart';
+import '../../widgets/shared_widgets/custom_textfields.dart';
 import '../../widgets/shared_widgets/two_widget_appbar.dart';
 
 class UpdateProfilePage extends StatelessWidget {

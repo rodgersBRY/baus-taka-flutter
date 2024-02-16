@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
 import '../../models/notification_model.dart';
@@ -37,7 +38,7 @@ class NotificationsPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         leading: IconButton(
           onPressed: () {
-            // Navigator.of(context).pop();
+            Navigator.of(context).pop();
           },
           icon: Icon(
             Icons.chevron_left,
@@ -61,10 +62,9 @@ class NotificationsPage extends StatelessWidget {
               //   Navigator.of(context)
               //       .push(MaterialPageRoute(builder: (context) => MyCartPage()));
             },
-            icon: Icon(
-              Icons.delete_outline,
-              size: 30,
-              color: Colors.black,
+            icon: SvgPicture.asset(
+              "assets/icons/trash.svg",
+              width: 30,
             ),
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
@@ -141,4 +141,3 @@ class NotificationsPage extends StatelessWidget {
     );
   }
 }
-

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -65,22 +67,28 @@ class MyOrdersPage extends StatelessWidget {
                     ],
                   ),
                   Gap(80),
-                  Container(
-                    color: Colors.black.withOpacity(.5),
-                    padding: const EdgeInsets.all(15),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        _itemDescriptionWidget("Product Name", "Hydro Flask"),
-                        Gap(10),
-                        _itemDescriptionWidget("Date", "27 May from 09:00"),
-                        Gap(10),
-                        _itemDescriptionWidget("Order ID", "#876578"),
-                        Gap(10),
-                        _itemDescriptionWidget("Amount", "Ksh. 800.00"),
-                        Gap(10),
-                        _itemDescriptionWidget("Status", "Delivered"),
-                      ],
+                  ClipRRect(
+                    child: BackdropFilter(
+                      filter: ImageFilter.blur(sigmaX: 4.0, sigmaY: 4.0),
+                      child: Container(
+                        color: Colors.white.withOpacity(.2),
+                        padding: const EdgeInsets.all(15),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            _itemDescriptionWidget(
+                                "Product Name", "Hydro Flask"),
+                            Gap(10),
+                            _itemDescriptionWidget("Date", "27 May from 09:00"),
+                            Gap(10),
+                            _itemDescriptionWidget("Order ID", "#876578"),
+                            Gap(10),
+                            _itemDescriptionWidget("Amount", "Ksh. 800.00"),
+                            Gap(10),
+                            _itemDescriptionWidget("Status", "Delivered"),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
                   GestureDetector(

@@ -1,4 +1,6 @@
+import 'package:baus_taka/utils/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class CustomBottomBar extends StatelessWidget {
   const CustomBottomBar({super.key});
@@ -17,7 +19,10 @@ class CustomBottomBar extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(Icons.shopping_bag, size: 40),
+                SvgPicture.asset(
+                  "assets/icons/shop-outlined.svg",
+                  width: 40,
+                ),
                 Expanded(
                   child: Text(
                     "Eco Shop",
@@ -32,8 +37,8 @@ class CustomBottomBar extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Image.asset(
-                    "assets/icons/blog_icon.png",
+                  SvgPicture.asset(
+                    "assets/icons/blog-outline.svg",
                     width: 40,
                   ),
                   Expanded(
@@ -50,8 +55,8 @@ class CustomBottomBar extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Image.asset(
-                    "assets/icons/events_icon.png",
+                  SvgPicture.asset(
+                    "assets/icons/events-outline.svg",
                     width: 40,
                   ),
                   Expanded(
@@ -68,8 +73,8 @@ class CustomBottomBar extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Image.asset(
-                    "assets/icons/explore_icon.png",
+                  SvgPicture.asset(
+                    "assets/icons/explore-outline.svg",
                     width: 40,
                   ),
                   Expanded(
@@ -93,12 +98,13 @@ class CustomFloatingButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       onPressed: () {},
-      child: Image.asset(
-        "assets/icons/home_icon.png",
-        width: 30,
+      child: SvgPicture.asset(
+        "assets/icons/home-outline.svg",
+        width: 40,
+        color: Colors.white,
       ),
-      backgroundColor: Colors.white,
-      foregroundColor: Colors.black,
+      backgroundColor: AppColors.primaryColor,
+      foregroundColor: Colors.white,
       shape: CircleBorder(),
     );
   }

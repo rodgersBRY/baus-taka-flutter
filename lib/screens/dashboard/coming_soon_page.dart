@@ -1,18 +1,13 @@
-import 'package:baus_taka/widgets/shared_widgets/two_widget_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import '../../widgets/shared_widgets/bottom_navigation.dart';
 import '../../widgets/shared_widgets/outlined_button.dart';
+import '../../widgets/shared_widgets/two_widget_appbar.dart';
 
-class ComingSoonPage extends StatefulWidget {
+class ComingSoonPage extends StatelessWidget {
   ComingSoonPage({super.key});
 
-  @override
-  State<ComingSoonPage> createState() => _ComingSoonPageState();
-}
-
-class _ComingSoonPageState extends State<ComingSoonPage> {
   final FocusNode searchFocusNode = FocusNode();
 
   final TextEditingController searchController = TextEditingController();

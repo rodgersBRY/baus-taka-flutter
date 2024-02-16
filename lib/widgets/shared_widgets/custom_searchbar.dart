@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class CustomSearchBar extends StatelessWidget {
   final TextEditingController editingController;
@@ -28,7 +29,11 @@ class CustomSearchBar extends StatelessWidget {
             hintText: hintText,
             hintStyle: TextStyle(color: Colors.grey),
             border: InputBorder.none,
-            suffixIcon: Icon(Icons.search, color: Colors.grey),
+            suffixIcon: SvgPicture.asset(
+              "assets/icons/magnifying-glass.svg",
+              height: 10,
+              width: 10,
+            ),
           ),
         ),
       ),

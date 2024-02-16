@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
 import '../../utils/app_colors.dart';
@@ -96,8 +96,11 @@ class ReviewProductsPage extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.rate_review,
-                              color: AppColors.primaryColor),
+                          SvgPicture.asset(
+                            "assets/icons/comment-rate.svg",
+                            width: 20,
+                            color: AppColors.primaryColor,
+                          ),
                           Gap(10),
                           TitleText(
                             text: "Review",

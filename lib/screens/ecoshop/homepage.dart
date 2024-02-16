@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
 import '../../utils/app_colors.dart';
@@ -34,10 +35,9 @@ class _EcoHomepageState extends State<EcoHomepage> {
         appBar: AppBar(
           leading: IconButton(
             onPressed: () {},
-            icon: Icon(
-              Icons.shopping_bag,
-              size: 30,
-              color: Colors.black,
+            icon: SvgPicture.asset(
+              "assets/icons/shopping-cart-bookmark.svg",
+              width: 40,
             ),
           ),
           title: CustomSearchBar(
@@ -51,10 +51,10 @@ class _EcoHomepageState extends State<EcoHomepage> {
                 Navigator.of(context).push(
                     MaterialPageRoute(builder: (context) => MyCartPage()));
               },
-              icon: Icon(
-                Icons.shopping_cart,
-                size: 30,
-                color: Colors.black,
+              icon: SvgPicture.asset(
+                "assets/icons/shopping-cart-active.svg",
+                color: AppColors.primaryColor,
+                width: 40,
               ),
             ),
           ],
