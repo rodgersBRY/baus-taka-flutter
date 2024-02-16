@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../screens/ecoshop/homepage.dart';
 import '../../utils/app_colors.dart';
 import '../../widgets/shared_widgets/title_text.dart';
 
@@ -27,7 +28,12 @@ AppBar secondaryAppBarWidget(BuildContext context, String title) {
     ),
     actions: [
       IconButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (context) => EcoHomepage()),
+            (Route<dynamic> route) => false,
+          );
+        },
         icon: SvgPicture.asset(
           "assets/icons/shop-outlined.svg",
           width: 35,

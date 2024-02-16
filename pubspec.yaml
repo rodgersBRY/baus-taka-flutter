@@ -38,6 +38,7 @@ dependencies:
   gap:
   get: ^4.6.6
   flutter_svg: ^2.0.9
+  sliding_up_panel: ^2.0.0+1
 
 dev_dependencies:
   flutter_test:

@@ -1,3 +1,5 @@
+import 'package:baus_taka/screens/blogging/blog_homepage.dart';
+import 'package:baus_taka/screens/ecoshop/homepage.dart';
 import 'package:baus_taka/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -8,6 +10,7 @@ class CustomBottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
+      elevation: 1,
       notchMargin: 5.0,
       shape: CircularNotchedRectangle(),
       color: Colors.white,
@@ -16,6 +19,12 @@ class CustomBottomBar extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: [
           GestureDetector(
+            onTap: () {
+              Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (context) => EcoHomepage()),
+                (Route<dynamic> route) => false,
+              );
+            },
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -32,6 +41,12 @@ class CustomBottomBar extends StatelessWidget {
             ),
           ),
           GestureDetector(
+            onTap: () {
+              Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (context) => BlogHomePage()),
+                (Route<dynamic> route) => false,
+              );
+            },
             child: Padding(
               padding: const EdgeInsets.only(right: 30.0),
               child: Column(

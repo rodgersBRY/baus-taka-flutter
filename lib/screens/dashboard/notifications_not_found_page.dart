@@ -4,8 +4,8 @@ import 'package:gap/gap.dart';
 import '../../utils/app_colors.dart';
 import '../../widgets/shared_widgets/bottom_navigation.dart';
 
-class NotifcationsErrorPageage extends StatelessWidget {
-  NotifcationsErrorPageage({super.key});
+class NotifcationsErrorPage extends StatelessWidget {
+  NotifcationsErrorPage({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -54,8 +54,11 @@ class FeedbackSuccessPage extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: CustomButton(
                     onPressed: () {
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context) => EcoHomepage()));
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (context) => EcoHomepage(),
+                        ),
+                      );
                     },
                     title: "Continue Shopping",
                   ),

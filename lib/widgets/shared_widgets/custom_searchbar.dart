@@ -31,8 +31,7 @@ class CustomSearchBar extends StatelessWidget {
             border: InputBorder.none,
             suffixIcon: SvgPicture.asset(
               "assets/icons/magnifying-glass.svg",
-              height: 10,
-              width: 10,
+              width: 5,
             ),
           ),
         ),
