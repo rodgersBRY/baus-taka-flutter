@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
-import '../../widgets/shared_widgets/bottom_navigation.dart';
 import '../../widgets/shared_widgets/custom_searchbar.dart';
 import '../../widgets/shared_widgets/title_text.dart';
 import './blog_details_page.dart';
@@ -89,9 +88,6 @@ class BlogHomePage extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: CustomFloatingButton(),
-      bottomNavigationBar: CustomBottomBar(),
     );
   }
 

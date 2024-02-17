@@ -91,15 +91,28 @@ class ReviewProductsPage extends StatelessWidget {
                           builder: (context) => ReviewDetailsPage()));
                     },
                     child: Container(
-                      color: Colors.white,
-                      padding: const EdgeInsets.all(10),
+                      padding: const EdgeInsets.symmetric(vertical: 10.0),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.vertical(
+                          bottom: Radius.circular(14),
+                        ),
+                        border: Border(
+                          bottom: BorderSide(
+                              color: AppColors.primaryColor, width: 2),
+                          left: BorderSide(
+                              color: AppColors.primaryColor, width: 2),
+                          right: BorderSide(
+                              color: AppColors.primaryColor, width: 2),
+                        ),
+                      ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           SvgPicture.asset(
                             "assets/icons/comment-rate.svg",
-                            width: 20,
                             color: AppColors.primaryColor,
+                            width: 20,
                           ),
                           Gap(10),
                           TitleText(

@@ -1,4 +1,6 @@
-import 'package:baus_taka/screens/dashboard/homepage.dart';
+import 'package:baus_taka/screens/events_section/event_details_page.dart';
+import 'package:baus_taka/screens/events_section/event_not_found.dart';
+import 'package:baus_taka/screens/events_section/events_homepage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
         useMaterial3: true,
       ),
-      home: DashboardHomepage(),
+      home: EventsNotFoundPage(),
     );
   }
 }
