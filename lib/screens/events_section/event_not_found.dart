@@ -1,14 +1,9 @@
-import 'dart:ui';
-
-import 'package:baus_taka/screens/events_section/event_details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
-import '../../models/events_model.dart';
 import '../../utils/app_colors.dart';
 import '../../widgets/shared_widgets/custom_searchbar.dart';
-import '../../widgets/shared_widgets/title_text.dart';
 
 // ignore: must_be_immutable
 class EventsNotFoundPage extends StatelessWidget {

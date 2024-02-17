@@ -1,10 +1,8 @@
-import 'package:baus_taka/models/events_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
+import '../../models/events_model.dart';
 import '../../utils/app_colors.dart';
-import '../../widgets/shared_widgets/custom_input_text.dart';
 import '../../widgets/shared_widgets/title_text.dart';
 
 // ignore: must_be_immutable
