@@ -15,7 +15,9 @@ class CustomSearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
       decoration: BoxDecoration(
         color: Color.fromARGB(255, 240, 239, 239),
         borderRadius: BorderRadiusDirectional.circular(10.0),

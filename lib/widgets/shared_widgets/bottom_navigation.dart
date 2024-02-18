@@ -1,5 +1,7 @@
 import 'package:baus_taka/screens/blogging/blog_homepage.dart';
+import 'package:baus_taka/screens/dashboard/homepage.dart';
 import 'package:baus_taka/screens/ecoshop/homepage.dart';
+import 'package:baus_taka/screens/events_section/events_homepage.dart';
 import 'package:baus_taka/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -20,10 +22,8 @@ class CustomBottomBar extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              Navigator.of(context).pushAndRemoveUntil(
-                MaterialPageRoute(builder: (context) => EcoHomepage()),
-                (Route<dynamic> route) => false,
-              );
+              Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => EcoHomepage()));
             },
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -42,10 +42,8 @@ class CustomBottomBar extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.of(context).pushAndRemoveUntil(
-                MaterialPageRoute(builder: (context) => BlogHomePage()),
-                (Route<dynamic> route) => false,
-              );
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => BlogHomePage()));
             },
             child: Padding(
               padding: const EdgeInsets.only(right: 30.0),
@@ -65,6 +63,10 @@ class CustomBottomBar extends StatelessWidget {
             ),
           ),
           GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => EventsHomePage()));
+            },
             child: Padding(
               padding: const EdgeInsets.only(left: 10.0),
               child: Column(
@@ -83,6 +85,7 @@ class CustomBottomBar extends StatelessWidget {
             ),
           ),
           GestureDetector(
+            onTap: () {},
             child: Padding(
               padding: const EdgeInsets.only(left: 10.0),
               child: Column(
@@ -112,7 +115,11 @@ class CustomFloatingButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => DashboardHomepage()),
+        );
+      },
       child: SvgPicture.asset(
         "assets/icons/home-outline.svg",
         width: 40,
