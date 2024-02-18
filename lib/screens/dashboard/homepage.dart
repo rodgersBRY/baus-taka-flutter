@@ -338,7 +338,7 @@ class PanelWidget extends StatelessWidget {
       title: "Report Illegal Dumping",
       subtitle: "Keep your environment clean",
       date: "27 May from 9:00",
-      imageUrl: "assets/upcoming_pickup.png",
+      imageUrl: "assets/report.png",
     ),
     NotificationModel(
       title: "Upcoming Pickups",

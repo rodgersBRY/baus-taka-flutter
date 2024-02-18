@@ -28,7 +28,7 @@ class EventsHomePage extends StatelessWidget {
       imageUrl: "assets/events_1.jpg",
     ),
     EventModel(
-      title: "Paris Bridge Community Cleanup",
+      title: "Community Development & SDGs",
       location: "Old Town, Mombasa",
       date: "27 May from 09:00",
       details:
@@ -72,8 +72,43 @@ class EventsHomePage extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              // Navigator.of(context)
-              //     .push(MaterialPageRoute(builder: (context) => MyCartPage()));
+              showModalBottomSheet(
+                  context: context,
+                  builder: (context) {
+                    return Container(
+                      width: double.infinity,
+                      child: Column(
+                        children: [
+                          Gap(20),
+                          // drag handle bar
+                          Center(
+                            child: Container(
+                              width: 70,
+                              height: 5,
+                              decoration: BoxDecoration(
+                                color: Colors.black54,
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                            ),
+                          ),
+                          Gap(50),
+                          Container(
+                            child: Image.asset("assets/reward.png"),
+                          ),
+                          TitleText(
+                            text: "Invite your friends",
+                            color: Colors.black,
+                            fontSize: 24,
+                          ),
+                          TitleText(
+                            text: "Get Rewarded",
+                            color: AppColors.primaryColor,
+                            fontSize: 20,
+                          ),
+                        ],
+                      ),
+                    );
+                  });
             },
             icon: SvgPicture.asset(
               "assets/icons/fire.svg",
