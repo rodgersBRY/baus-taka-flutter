@@ -1,4 +1,5 @@
-import 'package:baus_taka/screens/Wallet/wallet_balance_page.dart';
+import 'package:baus_taka/screens/rewards/badge_guide_page.dart';
+import 'package:baus_taka/screens/rewards/redemption_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
         useMaterial3: true,
       ),
-      home: WalletBalancePage(),
+      home: BadgGuidePage(),
     );
   }
 }
