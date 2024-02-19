@@ -1,4 +1,4 @@
-import 'package:baus_taka/screens/events_section/events_homepage.dart';
+import 'package:baus_taka/screens/plastic_donations/donate_plastics_homepage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
         useMaterial3: true,
       ),
-      home: EventsHomePage(),
+      home: DonatePlasticsHomepage(),
     );
   }
 }

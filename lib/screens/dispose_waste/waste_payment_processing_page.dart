@@ -2,23 +2,23 @@ import 'package:baus_taka/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import './order_successful_page.dart';
+import '../dashboard/homepage.dart';
 
-class ProcessPaymentPage extends StatefulWidget {
-  const ProcessPaymentPage({super.key});
+class WastePaymentPage extends StatefulWidget {
+  const WastePaymentPage({super.key});
 
   @override
-  State<ProcessPaymentPage> createState() => _ProcessPaymentPageState();
+  State<WastePaymentPage> createState() => _WastePaymentPageState();
 }
 
-class _ProcessPaymentPageState extends State<ProcessPaymentPage> {
+class _WastePaymentPageState extends State<WastePaymentPage> {
   @override
   void initState() {
     super.initState();
 
     Future.delayed(Duration(seconds: 3), () {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => OrderSuccessfulPage()));
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context) => DashboardHomepage()));
     });
   }
 
