@@ -1,3 +1,4 @@
+import 'package:baus_taka/screens/Wallet/processing_payment_page.dart';
 import 'package:baus_taka/utils/app_colors.dart';
 import 'package:baus_taka/widgets/shared_widgets/custom_keyboard.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,8 @@ class WalletNumberPage extends StatefulWidget {
 }
 
 class _WalletNumberPageState extends State<WalletNumberPage> {
-  final _amountController = TextEditingController();
+  final _phoneNumberController = TextEditingController();
+  final _phoneNumberFocusNode = FocusNode();
 
   @override
   void initState() {
@@ -22,13 +24,17 @@ class _WalletNumberPageState extends State<WalletNumberPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return GestureDetector(
+      onTap: () {
+        _phoneNumberFocusNode.unfocus();
+      },
+      child: Scaffold(
         appBar: AppBar(
           centerTitle: true,
           leading: Builder(builder: (BuildContext context) {
             return IconButton(
               onPressed: () {
-                // Navigator.of(context).pop();
+                Navigator.of(context).pop();
               },
               icon: Icon(
                 Icons.chevron_left,
@@ -77,8 +83,10 @@ class _WalletNumberPageState extends State<WalletNumberPage> {
                     Container(
                       width: MediaQuery.of(context).size.width * .6,
                       child: TextField(
+                        keyboardType: TextInputType.none,
                         textAlign: TextAlign.center,
-                        controller: _amountController,
+                        controller: _phoneNumberController,
+                        focusNode: _phoneNumberFocusNode,
                         style: TextStyle(fontSize: 40),
                         decoration: InputDecoration(
                           hintText: "0712345678",
@@ -104,7 +112,10 @@ class _WalletNumberPageState extends State<WalletNumberPage> {
                         color: AppColors.gradientColor,
                       ),
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => WalletPaymentPage()));
+                        },
                         child: Ink(
                           child: Text(
                             "Deposit",
@@ -124,12 +135,14 @@ class _WalletNumberPageState extends State<WalletNumberPage> {
                       ),
                     ),
                     Gap(20),
-                    CustomKeyboard(controller: _amountController)
+                    CustomKeyboard(controller: _phoneNumberController)
                   ],
                 ),
               ),
             ),
           ],
-        ));
+        ),
+      ),
+    );
   }
 }

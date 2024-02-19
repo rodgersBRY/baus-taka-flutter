@@ -1,3 +1,4 @@
+import 'package:baus_taka/screens/Wallet/wallet_balance_page.dart';
 import 'package:baus_taka/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -15,10 +16,10 @@ class _WalletPaymentPageState extends State<WalletPaymentPage> {
   void initState() {
     super.initState();
 
-    // Future.delayed(Duration(seconds: 3), () {
-    //   Navigator.pushReplacement(
-    //       context, MaterialPageRoute(builder: (context) => OrderSuccessfulPage()));
-    // });
+    Future.delayed(Duration(seconds: 3), () {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => WalletBalancePage()));
+    });
   }
 
   @override

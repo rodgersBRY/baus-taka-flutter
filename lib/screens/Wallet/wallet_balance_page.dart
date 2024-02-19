@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:baus_taka/screens/Wallet/wallet_deposit_page.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
@@ -94,15 +95,16 @@ class WalletBalancePage extends StatelessWidget {
                             color: AppColors.primaryColor,
                           ),
                           child: ElevatedButton(
-                            onPressed: () {},
-                            child: Ink(
-                              child: Text(
-                                "Topup",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20,
-                                ),
+                            onPressed: () {
+                               Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => WalletDepositPage()));
+                            },
+                            child: Text(
+                              "Topup",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
                               ),
                             ),
                             style: ElevatedButton.styleFrom(
