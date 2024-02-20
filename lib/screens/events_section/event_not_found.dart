@@ -68,7 +68,7 @@ class EventsNotFoundPage extends StatelessWidget {
           ),
           Gap(30),
           Text(
-            "NO beach cleanup events",
+            "No beach cleanup events",
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 24,

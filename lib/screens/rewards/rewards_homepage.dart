@@ -72,7 +72,7 @@ class _RewardsHomepageState extends State<RewardsHomepage> {
           );
         }),
         title: TitleText(
-          text: "My Wallet",
+          text: "Rewards",
           color: AppColors.primaryColor,
           fontSize: 22,
         ),

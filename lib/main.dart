@@ -1,6 +1,4 @@
-import 'package:baus_taka/screens/rewards/badge_guide_page.dart';
-import 'package:baus_taka/screens/rewards/history_badges_page.dart';
-import 'package:baus_taka/screens/rewards/rewards_homepage.dart';
+import 'package:baus_taka/screens/illegal_dumping/reports_homepage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
         useMaterial3: true,
       ),
-      home: RewardsHomepage(),
+      home: ReportsHomePage(),
     );
   }
 }
