@@ -1,12 +1,10 @@
 import 'dart:ui';
 
-import 'package:baus_taka/screens/dispose_waste/waste_payment_processing_page.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../../utils/app_colors.dart';
-import '../../widgets/shared_widgets/custom_button.dart';
 import '../../widgets/shared_widgets/title_text.dart';
 
 class PickupDetaislPage extends StatelessWidget {

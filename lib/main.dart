@@ -1,7 +1,4 @@
-import 'package:baus_taka/screens/pickups/no_pickups_page.dart';
 import 'package:baus_taka/screens/pickups/pickup_details_page.dart';
-import 'package:baus_taka/screens/pickups/pickup_map_page.dart';
-import 'package:baus_taka/screens/pickups/pickups_homepage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
