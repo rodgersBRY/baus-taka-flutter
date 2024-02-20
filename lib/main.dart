@@ -1,3 +1,4 @@
+import 'package:baus_taka/screens/illegal_dumping/new_report_page.dart';
 import 'package:baus_taka/screens/illegal_dumping/reports_homepage.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
         useMaterial3: true,
       ),
-      home: ReportsHomePage(),
+      home: NewReportPage(),
     );
   }
 }

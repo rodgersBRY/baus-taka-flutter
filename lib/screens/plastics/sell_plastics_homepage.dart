@@ -28,21 +28,19 @@ class PlasticsHomepage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          leading: Builder(builder: (BuildContext context) {
-            return IconButton(
-              onPressed: () {
-                // Navigator.of(context).pop();
-              },
-              icon: Icon(
-                Icons.chevron_left,
-                size: 30,
-              ),
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
-              ),
-              color: Colors.black,
-            );
-          }),
+          leading: IconButton(
+            onPressed: () {
+              // Navigator.of(context).pop();
+            },
+            icon: Icon(
+              Icons.chevron_left,
+              size: 30,
+            ),
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+            ),
+            color: Colors.black,
+          ),
           title: TitleText(
             text: "Sell Plastic",
             color: AppColors.secondaryBlueColor,
