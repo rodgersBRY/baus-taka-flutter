@@ -6,6 +6,8 @@ import '../../utils/app_colors.dart';
 import '../../widgets/shared_widgets/custom_keyboard.dart';
 import '../../widgets/shared_widgets/slider_indicator.dart';
 import '../../widgets/shared_widgets/title_text.dart';
+import './badge_guide_page.dart';
+import './history_badges_page.dart';
 
 class RedeemPointsPage extends StatefulWidget {
   const RedeemPointsPage({super.key});
@@ -28,7 +30,7 @@ class _RedeemPointsPageState extends State<RedeemPointsPage> {
         leading: Builder(builder: (BuildContext context) {
           return IconButton(
             onPressed: () {
-              // Navigator.of(context).pop();
+              Navigator.of(context).pop();
             },
             icon: Icon(
               Icons.chevron_left,
@@ -41,13 +43,16 @@ class _RedeemPointsPageState extends State<RedeemPointsPage> {
           );
         }),
         title: TitleText(
-          text: "My Wallet",
+          text: "Rewards",
           color: AppColors.primaryColor,
           fontSize: 22,
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => BadgGuidePage()));
+            },
             icon: SvgPicture.asset(
               "assets/icons/information-bubble.svg",
               color: AppColors.primaryColor,
@@ -214,17 +219,18 @@ class _RedeemPointsPageState extends State<RedeemPointsPage> {
             ),
             child: ElevatedButton(
               onPressed: () {
-                // Navigator.of(context).push(MaterialPageRoute(
-                //     builder: (context) => WalletNumberPage()));
-              },
-              child: Ink(
-                child: Text(
-                  "Redeem",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => HistoryBadgesPage(),
                   ),
+                );
+              },
+              child: Text(
+                "Redeem",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
                 ),
               ),
               style: ElevatedButton.styleFrom(

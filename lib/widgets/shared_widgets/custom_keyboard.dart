@@ -19,12 +19,6 @@ class _CustomKeyboardState extends State<CustomKeyboard> {
   }
 
   @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Column(
       children: [

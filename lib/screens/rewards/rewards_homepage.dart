@@ -5,6 +5,8 @@ import 'package:gap/gap.dart';
 import '../../utils/app_colors.dart';
 import '../../widgets/shared_widgets/slider_indicator.dart';
 import '../../widgets/shared_widgets/title_text.dart';
+import './badge_guide_page.dart';
+import './redeem_points_page.dart';
 
 class RewardsHomepage extends StatefulWidget {
   const RewardsHomepage({super.key});
@@ -76,7 +78,10 @@ class _RewardsHomepageState extends State<RewardsHomepage> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => BadgGuidePage()));
+            },
             icon: SvgPicture.asset(
               "assets/icons/information-bubble.svg",
               color: AppColors.primaryColor,
@@ -241,7 +246,11 @@ class _RewardsHomepageState extends State<RewardsHomepage> {
               color: Colors.grey,
             ),
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => RedeemPointsPage()),
+                );
+              },
               child: Ink(
                 child: Text(
                   "Redeem",

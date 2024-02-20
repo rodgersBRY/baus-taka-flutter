@@ -15,7 +15,7 @@ class RedemptionPage extends StatelessWidget {
         leading: Builder(builder: (BuildContext context) {
           return IconButton(
             onPressed: () {
-              // Navigator.of(context).pop();
+              Navigator.of(context).pop();
             },
             icon: Icon(
               Icons.chevron_left,

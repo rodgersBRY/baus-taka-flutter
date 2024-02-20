@@ -15,7 +15,7 @@ class BadgGuidePage extends StatelessWidget {
         leading: Builder(builder: (BuildContext context) {
           return IconButton(
             onPressed: () {
-              // Navigator.of(context).pop();
+              Navigator.of(context).pop();
             },
             icon: Icon(
               Icons.chevron_left,
@@ -55,14 +55,14 @@ class BadgGuidePage extends StatelessWidget {
                 context,
                 "Eco Explore Badge: ",
                 "You're stepping up your game! To earn the Green Guru badge, build on your eco exploration. Complete more tasks and embrace sustainable living with enthusiasm.",
-                "assets/medal.png",
+                "assets/silver_medal.png",
               ),
               Gap(20),
               _guideItemWithImage(
                 context,
                 "Planet Protector Badge",
                 "Congratulations, you're a true eco-hero! The Planet Protector badge is the pinnacle of achievement. Only those who've truly embraced a green lifestyle can unlock this badge.",
-                "assets/medal.png",
+                "assets/trophy_cup.png",
               ),
               Gap(20),
               _guideItem(
