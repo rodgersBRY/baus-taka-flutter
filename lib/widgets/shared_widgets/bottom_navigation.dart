@@ -122,7 +122,7 @@ class CustomFloatingButton extends StatelessWidget {
       },
       child: SvgPicture.asset(
         "assets/icons/home-outline.svg",
-        width: 40,
+        width: 25,
         color: Colors.white,
       ),
       backgroundColor: AppColors.primaryColor,

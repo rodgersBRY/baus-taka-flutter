@@ -2,15 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import '../../utils/app_colors.dart';
-import '../../widgets/shared_widgets/title_text.dart';
-import './new_report_page.dart';
+import '../../widgets/shared_widgets/bottom_navigation.dart';
 
-// ignore: must_be_immutable
-class ReportsNotFoundPage extends StatelessWidget {
-  ReportsNotFoundPage({super.key});
-
-  final FocusNode searchFocusNode = FocusNode();
-  final TextEditingController searchController = TextEditingController();
+class PickupsErrorPage extends StatelessWidget {
+  PickupsErrorPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +13,10 @@ class ReportsNotFoundPage extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.white,
-        elevation: 1,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            // Navigator.of(context).pop();
+          },
           icon: Icon(
             Icons.chevron_left,
             size: 30,
@@ -30,23 +26,29 @@ class ReportsNotFoundPage extends StatelessWidget {
           ),
           color: Colors.black,
         ),
-        title: TitleText(
-          text: "Illegal Dumping",
-          color: AppColors.primaryColor,
-          fontSize: 22,
+        title: Text(
+          "Pickups",
+          style: TextStyle(
+            color: AppColors.primaryColor,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         actions: [
-          TextButton(
+          IconButton(
             onPressed: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => NewReportPage()));
+              //   Navigator.of(context)
+              //       .push(MaterialPageRoute(builder: (context) => MyCartPage()));
             },
-            child: Text(
-              "Report",
-              style: TextStyle(color: AppColors.primaryColor),
+            icon: Icon(
+              Icons.refresh,
+              size: 30,
+              color: Colors.black,
             ),
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+            ),
+            color: Colors.black,
           ),
-          Gap(10),
         ],
       ),
       body: Container(
@@ -56,14 +58,14 @@ class ReportsNotFoundPage extends StatelessWidget {
             Expanded(child: Container()),
             Container(
               child: Image.asset(
-                "assets/report_large.png",
+                "assets/upcoming_pickup.png",
                 fit: BoxFit.cover,
-                width: 200,
+                width: 300,
               ),
             ),
             Gap(30),
             Text(
-              "No new reports yet",
+              "No Upcoming Pickups",
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 24,
@@ -92,6 +94,9 @@ class ReportsNotFoundPage extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: CustomFloatingButton(),
+      bottomNavigationBar: CustomBottomBar(),
     );
   }
 }

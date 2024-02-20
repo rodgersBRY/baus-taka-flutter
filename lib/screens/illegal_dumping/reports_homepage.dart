@@ -6,6 +6,7 @@ import 'package:gap/gap.dart';
 import '../../models/report_model.dart';
 import '../../utils/app_colors.dart';
 import '../../widgets/shared_widgets/title_text.dart';
+import './new_report_page.dart';
 import './report_details_page.dart';
 
 // ignore: must_be_immutable
@@ -64,7 +65,11 @@ class ReportsHomePage extends StatelessWidget {
         ),
         actions: [
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => NewReportPage()),
+        );
+            },
             child: Text(
               "Report",
               style: TextStyle(color: AppColors.primaryColor),
