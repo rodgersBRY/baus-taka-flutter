@@ -62,7 +62,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                           ),
                           Gap(10),
                           Text(
-                            "We've auto-filled your shipping and billinf info",
+                            "We've auto-filled your shipping and billing info",
                             style: TextStyle(color: Colors.white, fontSize: 16),
                           ),
                           IconButton(
