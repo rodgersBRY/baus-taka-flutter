@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../utils/app_colors.dart';
 
 class CustomTextField extends StatelessWidget {
-  final IconData prefixIcon;
+  final IconData? prefixIcon;
   final String hintText;
   final TextEditingController editingController;
   final FocusNode focusNode;
@@ -12,7 +12,7 @@ class CustomTextField extends StatelessWidget {
     super.key,
     required this.editingController,
     required this.focusNode,
-    required this.prefixIcon,
+    this.prefixIcon,
     required this.hintText,
   });
 

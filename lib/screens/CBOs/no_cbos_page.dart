@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import '../../utils/app_colors.dart';
-import './new_subscription.dart';
+import './new_cbo_page.dart';
 
-class NoSubscriptionPage extends StatelessWidget {
-  NoSubscriptionPage({super.key});
+class NoCBOPage extends StatelessWidget {
+  NoCBOPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class NoSubscriptionPage extends StatelessWidget {
           color: Colors.black,
         ),
         title: Text(
-          "Subscriptions",
+          "MY CBOs",
           style: TextStyle(
             color: AppColors.primaryColor,
             fontWeight: FontWeight.bold,
@@ -36,8 +36,8 @@ class NoSubscriptionPage extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => NewSubscriptionPage()));
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => NewCBOPage()));
             },
             icon: Icon(
               Icons.add,
@@ -58,21 +58,21 @@ class NoSubscriptionPage extends StatelessWidget {
             Expanded(child: Container()),
             Container(
               child: Image.asset(
-                "assets/upcoming_pickup.png",
+                "assets/empty_cbo.png",
                 fit: BoxFit.cover,
-                width: 300,
+                width: 200,
               ),
             ),
             Gap(30),
             Text(
-              "No Subscriptions",
+              "No CBOs found",
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 24,
                 color: Colors.grey.withOpacity(.5),
               ),
             ),
-            Gap(10),
+            Gap(20),
             Container(
               width: MediaQuery.of(context).size.width * .45,
               decoration: BoxDecoration(
@@ -89,8 +89,8 @@ class NoSubscriptionPage extends StatelessWidget {
               ),
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => NewSubscriptionPage()));
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => NewCBOPage()));
                 },
                 child: Row(
                   children: [
@@ -101,7 +101,7 @@ class NoSubscriptionPage extends StatelessWidget {
                     ),
                     Gap(5),
                     Text(
-                      "Subscribe",
+                      "Register",
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
