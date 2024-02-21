@@ -42,6 +42,7 @@ class EcoChampionApplyPage extends StatelessWidget {
             () => Visibility(
               visible: showAutofilledBox.value,
               child: Container(
+                width: MediaQuery.of(context).size.width * .95,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5),
                   gradient: LinearGradient(
@@ -54,15 +55,15 @@ class EcoChampionApplyPage extends StatelessWidget {
                   ),
                 ),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Icon(
                       Icons.check_circle,
                       color: Colors.white,
                     ),
-                    Gap(10),
+                 
                     Text(
-                      "We've auto-filled your shipping and billing info",
+                      "Application sent successfully",
                       style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
                     IconButton(

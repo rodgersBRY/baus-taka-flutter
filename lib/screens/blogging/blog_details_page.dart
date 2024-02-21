@@ -252,7 +252,7 @@ class BlogDetailsPage extends StatelessWidget {
           ),
         ),
         bottomNavigationBar: BottomAppBar(
-          color: Colors.grey.withOpacity(.6),
+          color: Colors.grey.withOpacity(.1),
           child: Row(
             children: [
               IconButton(
@@ -266,7 +266,14 @@ class BlogDetailsPage extends StatelessWidget {
                   hintText: "Comment here",
                 ),
               ),
-              IconButton(onPressed: () {}, icon: Icon(Icons.send)),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.near_me,
+                  size: 30,
+                  color: AppColors.primaryColor,
+                ),
+              ),
             ],
           ),
         ));
