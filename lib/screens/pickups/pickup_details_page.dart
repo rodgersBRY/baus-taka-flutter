@@ -7,8 +7,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../../utils/app_colors.dart';
 import '../../widgets/shared_widgets/title_text.dart';
 
-class PickupDetaislPage extends StatelessWidget {
-  const PickupDetaislPage({super.key});
+class PickupDetailsPage extends StatelessWidget {
+  const PickupDetailsPage({super.key});
 
   static final LatLng _kMapCenter =
       LatLng(-1.2733806337508538, 36.8143121620124);

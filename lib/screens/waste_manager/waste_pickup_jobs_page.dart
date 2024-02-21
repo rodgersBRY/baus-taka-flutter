@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-import 'package:baus_taka/screens/pickups/pickup_details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
@@ -10,8 +9,8 @@ import '../../utils/app_colors.dart';
 import '../../widgets/shared_widgets/title_text.dart';
 
 // ignore: must_be_immutable
-class PickupsHomePage extends StatelessWidget {
-  PickupsHomePage({super.key});
+class WastePickupJobsPage extends StatelessWidget {
+  WastePickupJobsPage({super.key});
 
   static final LatLng _kMapCenter =
       LatLng(-1.2733806337508538, 36.8143121620124);
@@ -38,7 +37,7 @@ class PickupsHomePage extends StatelessWidget {
           color: Colors.black,
         ),
         title: TitleText(
-          text: "Pickups",
+          text: "Pickup Jobs",
           color: AppColors.primaryColor,
           fontSize: 22,
         ),
@@ -64,14 +63,12 @@ class PickupsHomePage extends StatelessWidget {
             Gap(20),
             Expanded(
               child: ListView.builder(
-                itemCount: 1,
+                itemCount: 4,
                 itemBuilder: ((context, index) {
                   return GestureDetector(
                     onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                            builder: (context) => PickupDetailsPage()),
-                      );
+                      // Navigator.of(context).push(MaterialPageRoute(
+                      //     builder: (context) => PickupDetailsPage()));
                     },
                     child: Container(
                       height: 250,
@@ -113,7 +110,7 @@ class PickupsHomePage extends StatelessWidget {
                                     ),
                                     child: Center(
                                       child: Text(
-                                        "Disposal - Accepted",
+                                        "Disposal - Pending",
                                         style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 25,
@@ -132,70 +129,64 @@ class PickupsHomePage extends StatelessWidget {
                                   filter: ImageFilter.blur(
                                       sigmaX: 5.0, sigmaY: 5.0),
                                   child: Container(
-                                    // height: 90,
                                     color: Colors.black.withOpacity(.4),
                                     padding: const EdgeInsets.symmetric(
                                       vertical: 10,
-                                      horizontal: 10,
+                                      horizontal: 15,
                                     ),
                                     width: double.infinity,
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
-                                            _rowContainer("Placed"),
-                                            _rowContainer("Confirmed"),
-                                            _rowContainer("Picked Up"),
-                                          ],
-                                        ),
-                                        Gap(15),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Container(
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.end,
-                                                children: [
-                                                  Icon(
-                                                    Icons.location_on_outlined,
-                                                    color: Colors.white,
-                                                  ),
-                                                  Gap(4),
-                                                  Text(
-                                                    "Old town, Mombasa",
-                                                    style: TextStyle(
-                                                        color: Colors.white),
-                                                  ),
-                                                ],
+                                            Text(
+                                              "Pickup Address",
+                                              style: TextStyle(
+                                                color: Colors.white,
                                               ),
                                             ),
-                                            Container(
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.end,
-                                                children: [
-                                                  Icon(
-                                                    Icons.event,
-                                                    color: Colors.white,
-                                                  ),
-                                                  Gap(4),
-                                                  Text(
-                                                    "27 August 2021, 7:03pm",
-                                                    style: TextStyle(
-                                                      color: Colors.white,
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
+                                            Row(
+                                              children: [
+                                                Icon(Icons.place,
+                                                    color: Colors.white),
+                                                Text(
+                                                  "Old town, Mombasa",
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ),
+                                              ],
                                             ),
                                           ],
                                         ),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              "Booked on",
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                            Row(
+                                              children: [
+                                                Icon(Icons.event,
+                                                    color: Colors.white),
+                                                Gap(2),
+                                                Text(
+                                                  "27 August 2021, 7:03pm",
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        )
                                       ],
                                     ),
                                   ),
