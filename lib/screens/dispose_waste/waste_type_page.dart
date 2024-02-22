@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import '../../utils/app_colors.dart';
 import '../../widgets/shared_widgets/custom_button.dart';
+import '../../widgets/shared_widgets/progress_rounded_containers.dart';
 import '../../widgets/shared_widgets/title_text.dart';
 import './pickup_type_page.dart';
 
@@ -65,6 +66,22 @@ class WasteTypePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Container(
+                height: 70,
+                color: Colors.white,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    markedContainer(AppColors.primaryColor),
+                    dashedContainer(AppColors.primaryColor),
+                    circularContainer(AppColors.primaryColor),
+                    dashedContainer(Colors.grey.withOpacity(.4)),
+                    borderContainer(),
+                    dashedContainer(Colors.grey.withOpacity(.4)),
+                    borderContainer(),
+                  ],
+                ),
+              ),
               TitleText(
                 text: "Type of waste",
                 color: Colors.black,

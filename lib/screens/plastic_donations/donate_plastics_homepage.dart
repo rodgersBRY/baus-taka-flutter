@@ -11,6 +11,7 @@ import 'package:sliding_up_panel/sliding_up_panel.dart';
 import '../../utils/app_colors.dart';
 import '../../widgets/shared_widgets/custom_input_text.dart';
 import '../../widgets/shared_widgets/custom_orange_button.dart';
+import '../../widgets/shared_widgets/progress_rounded_containers.dart';
 import '../../widgets/shared_widgets/title_text.dart';
 import './plastic_waste_type_page.dart';
 
@@ -67,6 +68,22 @@ class DonatePlasticsHomepage extends StatelessWidget {
               ),
               Column(
                 children: [
+                  Container(
+                    height: 70,
+                    color: Colors.white,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        circularContainer(AppColors.secondaryOrangeColor),
+                        dashedContainer(Colors.grey.withOpacity(.4)),
+                        borderContainer(),
+                        dashedContainer(Colors.grey.withOpacity(.4)),
+                        borderContainer(),
+                        dashedContainer(Colors.grey.withOpacity(.4)),
+                        borderContainer(),
+                      ],
+                    ),
+                  ),
                   ClipRRect(
                     child: BackdropFilter(
                       filter: ImageFilter.blur(sigmaX: 4.0, sigmaY: 4.0),

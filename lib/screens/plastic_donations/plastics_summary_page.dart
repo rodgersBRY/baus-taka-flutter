@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import '../../utils/app_colors.dart';
+import '../../widgets/shared_widgets/progress_rounded_containers.dart';
 import '../../widgets/shared_widgets/title_text.dart';
 
 class DonatePlasticWasteSummaryPage extends StatelessWidget {
@@ -69,7 +70,22 @@ class DonatePlasticWasteSummaryPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Gap(50),
+            Container(
+              height: 70,
+              color: Colors.white,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  markedContainer(AppColors.secondaryOrangeColor),
+                  dashedContainer(AppColors.secondaryOrangeColor),
+                  markedContainer(AppColors.secondaryOrangeColor),
+                  dashedContainer(AppColors.secondaryOrangeColor),
+                  markedContainer(AppColors.secondaryOrangeColor),
+                  dashedContainer(AppColors.secondaryOrangeColor),
+                  markedContainer(AppColors.secondaryOrangeColor),
+                ],
+              ),
+            ),
             TitleText(
               text: "Summary",
               color: AppColors.secondaryOrangeColor,

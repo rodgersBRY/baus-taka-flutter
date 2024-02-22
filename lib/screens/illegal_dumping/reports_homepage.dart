@@ -82,157 +82,214 @@ class ReportsHomePage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(5.0),
-        child: Column(
-          children: [
-            Gap(20),
-            Expanded(
-              child: ListView.builder(
-                itemCount: _reportedItems.length,
-                itemBuilder: ((context, index) {
-                  return GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => ReportDetailsPage(
-                                report: _reportedItems[index],
-                              )));
-                    },
-                    child: Container(
-                      height: 320,
-                      margin: const EdgeInsets.only(bottom: 30.0),
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(_reportedItems[index].imageUrl),
-                          fit: BoxFit.cover,
-                        ),
-                        borderRadius: BorderRadius.circular(14),
-                      ),
-                      child: Column(
-                        children: [
-                          Container(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
+        child: _reportedItems.isEmpty
+            ? _emptyReportsContainer(context)
+            : Column(
+                children: [
+                  Gap(20),
+                  Expanded(
+                    child: ListView.builder(
+                      itemCount: _reportedItems.length,
+                      itemBuilder: ((context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => ReportDetailsPage(
+                                      report: _reportedItems[index],
+                                    )));
+                          },
+                          child: Container(
+                            height: 320,
+                            margin: const EdgeInsets.only(bottom: 30.0),
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image:
+                                    AssetImage(_reportedItems[index].imageUrl),
+                                fit: BoxFit.cover,
+                              ),
+                              borderRadius: BorderRadius.circular(14),
+                            ),
+                            child: Column(
                               children: [
                                 Container(
-                                  margin: const EdgeInsets.all(10.0),
-                                  padding: const EdgeInsets.all(10.0),
-                                  decoration: BoxDecoration(
-                                    color: Colors.black.withOpacity(.4),
-                                    borderRadius: BorderRadius.circular(14),
-                                  ),
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
-                                      Icon(
-                                        Icons.campaign,
-                                        color: Colors.white,
+                                      Container(
+                                        margin: const EdgeInsets.all(10.0),
+                                        padding: const EdgeInsets.all(10.0),
+                                        decoration: BoxDecoration(
+                                          color: Colors.black.withOpacity(.4),
+                                          borderRadius:
+                                              BorderRadius.circular(14),
+                                        ),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          children: [
+                                            Icon(
+                                              Icons.campaign,
+                                              color: Colors.white,
+                                            ),
+                                            Gap(4),
+                                            Text(
+                                              "Reported",
+                                              style: TextStyle(
+                                                  color: Colors.white),
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                      Gap(4),
-                                      Text(
-                                        "Reported",
-                                        style: TextStyle(color: Colors.white),
+                                      Container(
+                                        margin: const EdgeInsets.all(10.0),
+                                        padding: const EdgeInsets.all(10.0),
+                                        decoration: BoxDecoration(
+                                          color: Colors.black.withOpacity(.4),
+                                          borderRadius:
+                                              BorderRadius.circular(14),
+                                        ),
+                                        child: Row(
+                                          children: [
+                                            Icon(
+                                              Icons.delete,
+                                              color: Colors.white,
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ],
                                   ),
                                 ),
-                                Container(
-                                  margin: const EdgeInsets.all(10.0),
-                                  padding: const EdgeInsets.all(10.0),
-                                  decoration: BoxDecoration(
-                                    color: Colors.black.withOpacity(.4),
-                                    borderRadius: BorderRadius.circular(14),
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Icon(
-                                        Icons.delete,
-                                        color: Colors.white,
+                                Expanded(child: Container()),
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(14.0),
+                                  child: BackdropFilter(
+                                    filter: ImageFilter.blur(
+                                        sigmaX: 5.0, sigmaY: 5.0),
+                                    child: Container(
+                                      color: Colors.black.withOpacity(.4),
+                                      padding: const EdgeInsets.symmetric(
+                                        vertical: 10,
+                                        horizontal: 10,
                                       ),
-                                    ],
+                                      width: double.infinity,
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          TitleText(
+                                            text: _reportedItems[index].title,
+                                            color: Colors.white,
+                                            fontSize: 20,
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Container(
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.end,
+                                                  children: [
+                                                    Icon(
+                                                      Icons
+                                                          .location_on_outlined,
+                                                      color: Colors.white,
+                                                    ),
+                                                    Gap(4),
+                                                    Text(
+                                                      _reportedItems[index]
+                                                          .location,
+                                                      style: TextStyle(
+                                                          color: Colors.white),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Container(
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.end,
+                                                  children: [
+                                                    Icon(
+                                                      Icons.event,
+                                                      color: Colors.white,
+                                                    ),
+                                                    Gap(4),
+                                                    Text(
+                                                      _reportedItems[index]
+                                                          .date,
+                                                      style: TextStyle(
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ],
                             ),
                           ),
-                          Expanded(child: Container()),
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(14.0),
-                            child: BackdropFilter(
-                              filter:
-                                  ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
-                              child: Container(
-                                color: Colors.black.withOpacity(.4),
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 10,
-                                  horizontal: 10,
-                                ),
-                                width: double.infinity,
-                                child: Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    TitleText(
-                                      text: _reportedItems[index].title,
-                                      color: Colors.white,
-                                      fontSize: 20,
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Container(
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.end,
-                                            children: [
-                                              Icon(
-                                                Icons.location_on_outlined,
-                                                color: Colors.white,
-                                              ),
-                                              Gap(4),
-                                              Text(
-                                                _reportedItems[index].location,
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Container(
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.end,
-                                            children: [
-                                              Icon(
-                                                Icons.event,
-                                                color: Colors.white,
-                                              ),
-                                              Gap(4),
-                                              Text(
-                                                _reportedItems[index].date,
-                                                style: TextStyle(
-                                                  color: Colors.white,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                        );
+                      }),
                     ),
-                  );
-                }),
+                  ),
+                ],
+              ),
+      ),
+    );
+  }
+
+  Widget _emptyReportsContainer(BuildContext context) {
+    return Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Expanded(child: Container()),
+          Container(
+            child: Image.asset(
+              "assets/report_large.png",
+              fit: BoxFit.cover,
+              width: 200,
+            ),
+          ),
+          Gap(30),
+          Text(
+            "No new reports yet",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 24,
+              color: Colors.grey.withOpacity(.5),
+            ),
+          ),
+          Gap(10),
+          Container(
+            width: MediaQuery.of(context).size.width * .4,
+            child: TextButton(
+              onPressed: () {},
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.refresh, color: AppColors.primaryColor),
+                  Gap(5),
+                  Text(
+                    "Refresh",
+                    style: TextStyle(color: AppColors.primaryColor),
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+          Expanded(child: Container()),
+        ],
       ),
     );
   }

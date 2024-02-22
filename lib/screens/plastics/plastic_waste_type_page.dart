@@ -5,6 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 
 import '../../utils/app_colors.dart';
+import '../../widgets/shared_widgets/progress_rounded_containers.dart';
 import '../../widgets/shared_widgets/title_text.dart';
 
 // ignore: must_be_immutable
@@ -65,6 +66,22 @@ class PlasticWasteTypePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Container(
+                height: 70,
+                color: Colors.white,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    markedContainer(AppColors.secondaryBlueColor),
+                    dashedContainer(AppColors.secondaryBlueColor),
+                    circularContainer(AppColors.secondaryBlueColor),
+                    dashedContainer(Colors.grey.withOpacity(.4)),
+                    borderContainer(),
+                    dashedContainer(Colors.grey.withOpacity(.4)),
+                    borderContainer(),
+                  ],
+                ),
+              ),
               TitleText(
                 text: "Type of waste",
                 color: Colors.black,

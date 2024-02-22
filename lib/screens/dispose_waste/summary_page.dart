@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 
 import '../../utils/app_colors.dart';
 import '../../widgets/shared_widgets/custom_button.dart';
+import '../../widgets/shared_widgets/progress_rounded_containers.dart';
 import '../../widgets/shared_widgets/title_text.dart';
 
 class WasteSummaryPage extends StatelessWidget {
@@ -70,7 +71,22 @@ class WasteSummaryPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Gap(50),
+            Container(
+              height: 70,
+              color: Colors.white,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  markedContainer(AppColors.primaryColor),
+                  dashedContainer(AppColors.primaryColor),
+                  markedContainer(AppColors.primaryColor),
+                  dashedContainer(AppColors.primaryColor),
+                  markedContainer(AppColors.primaryColor),
+                  dashedContainer(AppColors.primaryColor),
+                  markedContainer(AppColors.primaryColor),
+                ],
+              ),
+            ),
             TitleText(
               text: "Summary",
               color: AppColors.primaryColor,
