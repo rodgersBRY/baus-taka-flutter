@@ -11,8 +11,8 @@ import '../../widgets/shared_widgets/custom_input_text.dart';
 import '../../widgets/shared_widgets/title_text.dart';
 
 // ignore: must_be_immutable
-class PostDetailssPage extends StatelessWidget {
-  PostDetailssPage({super.key});
+class PostDetailsPage extends StatelessWidget {
+  PostDetailsPage({super.key});
 
   final commentsController = TextEditingController();
   final commentsFocusNode = FocusNode();
@@ -28,7 +28,9 @@ class PostDetailssPage extends StatelessWidget {
         centerTitle: true,
         elevation: 1,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
           icon: Icon(
             Icons.chevron_left,
             size: 30,
@@ -266,7 +268,7 @@ class PostDetailssPage extends StatelessWidget {
                 focusNode: commentsFocusNode,
                 hintText: "Comment here",
               ),
-            ),  
+            ),
             IconButton(
               onPressed: () {},
               icon: Icon(

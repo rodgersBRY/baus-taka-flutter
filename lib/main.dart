@@ -1,4 +1,4 @@
-import 'package:baus_taka/screens/explore_section/post_details_page.dart';
+import 'package:baus_taka/screens/explore_section/explore_posts_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
         useMaterial3: true,
       ),
-      home: PostDetailssPage(),
+      home: ExplorePostsPage(),
     );
   }
 }
