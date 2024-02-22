@@ -10,7 +10,7 @@ class SupportPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: twoWidgetAppBar(title: "Support"),
+      appBar: twoWidgetAppBar(title: "Support", context: context),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Column(

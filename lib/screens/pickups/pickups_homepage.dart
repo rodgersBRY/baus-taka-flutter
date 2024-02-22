@@ -19,6 +19,14 @@ class PickupsHomePage extends StatelessWidget {
   static final CameraPosition _kInitialPosition =
       CameraPosition(target: _kMapCenter, zoom: 14.0, tilt: 0, bearing: 0);
 
+  List<Map<String, dynamic>> _pickupList = [
+    {
+      "status": "Accepted",
+      "location": "Old town, Mombasa",
+      "date": "27 August 2021, 7:03pm",
+    }
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +35,9 @@ class PickupsHomePage extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 1,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
           icon: Icon(
             Icons.chevron_left,
             size: 30,
@@ -43,17 +53,34 @@ class PickupsHomePage extends StatelessWidget {
           fontSize: 22,
         ),
         actions: [
-          IconButton(
-            onPressed: () {
-              // Navigator.of(context).push(
-              //   MaterialPageRoute(builder: (context) => NewReportPage()),
-              // );
-            },
-            icon: SvgPicture.asset(
-              "assets/icons/magnifying-glass.svg",
-              width: 30,
-            ),
-          ),
+          _pickupList.isEmpty
+              ? IconButton(
+                  onPressed: () {
+                    //   Navigator.of(context)
+                    //       .push(MaterialPageRoute(builder: (context) => MyCartPage()));
+                  },
+                  icon: Icon(
+                    Icons.refresh,
+                    size: 30,
+                    color: Colors.black,
+                  ),
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.white),
+                  ),
+                  color: Colors.black,
+                )
+              : IconButton(
+                  onPressed: () {
+                    // Navigator.of(context).push(
+                    //   MaterialPageRoute(builder: (context) => NewReportPage()),
+                    // );
+                  },
+                  icon: SvgPicture.asset(
+                    "assets/icons/magnifying-glass.svg",
+                    width: 30,
+                  ),
+                ),
           Gap(10),
         ],
       ),
@@ -63,155 +90,210 @@ class PickupsHomePage extends StatelessWidget {
           children: [
             Gap(20),
             Expanded(
-              child: ListView.builder(
-                itemCount: 1,
-                itemBuilder: ((context, index) {
-                  return GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                            builder: (context) => PickupDetailsPage()),
-                      );
-                    },
-                    child: Container(
-                      height: 250,
-                      margin: const EdgeInsets.only(bottom: 30.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(14),
-                      ),
-                      child: Stack(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(14.0),
-                            child: GoogleMap(
-                              initialCameraPosition: _kInitialPosition,
+              child: _pickupList.isEmpty
+                  ? _noPickupsContainer(context)
+                  : ListView.builder(
+                      itemCount: _pickupList.length,
+                      itemBuilder: ((context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (context) => PickupDetailsPage()),
+                            );
+                          },
+                          child: Container(
+                            height: 250,
+                            margin: const EdgeInsets.only(bottom: 30.0),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(14),
                             ),
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.vertical(
-                                    top: Radius.circular(14.0)),
-                                child: BackdropFilter(
-                                  filter: ImageFilter.blur(
-                                      sigmaX: 4.0, sigmaY: 4.0),
-                                  child: Container(
-                                    width: double.infinity,
-                                    padding: const EdgeInsets.symmetric(
-                                      vertical: 15,
-                                      horizontal: 20,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      color: Colors.black.withOpacity(.4),
-                                      border: Border(
-                                        bottom: BorderSide(
-                                          width: 2.0,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        "Disposal - Accepted",
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 25,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                    ),
+                            child: Stack(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(14.0),
+                                  child: GoogleMap(
+                                    initialCameraPosition: _kInitialPosition,
                                   ),
                                 ),
-                              ),
-                              ClipRRect(
-                                borderRadius: BorderRadius.vertical(
-                                  bottom: Radius.circular(14.0),
-                                ),
-                                child: BackdropFilter(
-                                  filter: ImageFilter.blur(
-                                      sigmaX: 5.0, sigmaY: 5.0),
-                                  child: Container(
-                                    // height: 90,
-                                    color: Colors.black.withOpacity(.4),
-                                    padding: const EdgeInsets.symmetric(
-                                      vertical: 10,
-                                      horizontal: 10,
-                                    ),
-                                    width: double.infinity,
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            _rowContainer("Placed"),
-                                            _rowContainer("Confirmed"),
-                                            _rowContainer("Picked Up"),
-                                          ],
-                                        ),
-                                        Gap(15),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Container(
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.end,
-                                                children: [
-                                                  Icon(
-                                                    Icons.location_on_outlined,
-                                                    color: Colors.white,
-                                                  ),
-                                                  Gap(4),
-                                                  Text(
-                                                    "Old town, Mombasa",
-                                                    style: TextStyle(
-                                                        color: Colors.white),
-                                                  ),
-                                                ],
+                                Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.vertical(
+                                          top: Radius.circular(14.0)),
+                                      child: BackdropFilter(
+                                        filter: ImageFilter.blur(
+                                            sigmaX: 4.0, sigmaY: 4.0),
+                                        child: Container(
+                                          width: double.infinity,
+                                          padding: const EdgeInsets.symmetric(
+                                            vertical: 15,
+                                            horizontal: 20,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            color: Colors.black.withOpacity(.4),
+                                            border: Border(
+                                              bottom: BorderSide(
+                                                width: 2.0,
+                                                color: Colors.white,
                                               ),
                                             ),
-                                            Container(
-                                              child: Row(
+                                          ),
+                                          child: Center(
+                                            child: Text(
+                                              "Disposal - ${_pickupList[index]['status']}",
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 25,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.vertical(
+                                        bottom: Radius.circular(14.0),
+                                      ),
+                                      child: BackdropFilter(
+                                        filter: ImageFilter.blur(
+                                            sigmaX: 5.0, sigmaY: 5.0),
+                                        child: Container(
+                                          // height: 90,
+                                          color: Colors.black.withOpacity(.4),
+                                          padding: const EdgeInsets.symmetric(
+                                            vertical: 10,
+                                            horizontal: 10,
+                                          ),
+                                          width: double.infinity,
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Row(
                                                 mainAxisAlignment:
-                                                    MainAxisAlignment.end,
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
                                                 children: [
-                                                  Icon(
-                                                    Icons.event,
-                                                    color: Colors.white,
+                                                  _rowContainer("Placed"),
+                                                  _rowContainer("Confirmed"),
+                                                  _rowContainer("Picked Up"),
+                                                ],
+                                              ),
+                                              Gap(15),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Container(
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment.end,
+                                                      children: [
+                                                        Icon(
+                                                          Icons
+                                                              .location_on_outlined,
+                                                          color: Colors.white,
+                                                        ),
+                                                        Gap(4),
+                                                        Text(
+                                                          _pickupList[index]
+                                                              ['location'],
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.white),
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
-                                                  Gap(4),
-                                                  Text(
-                                                    "27 August 2021, 7:03pm",
-                                                    style: TextStyle(
-                                                      color: Colors.white,
+                                                  Container(
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment.end,
+                                                      children: [
+                                                        Icon(
+                                                          Icons.event,
+                                                          color: Colors.white,
+                                                        ),
+                                                        Gap(4),
+                                                        Text(
+                                                          _pickupList[index]
+                                                              ['date'],
+                                                          style: TextStyle(
+                                                            color: Colors.white,
+                                                          ),
+                                                        ),
+                                                      ],
                                                     ),
                                                   ),
                                                 ],
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
-                                      ],
+                                      ),
                                     ),
-                                  ),
+                                  ],
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ],
-                      ),
+                        );
+                      }),
                     ),
-                  );
-                }),
-              ),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _noPickupsContainer(BuildContext context) {
+    return Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Expanded(child: Container()),
+          Container(
+            child: Image.asset(
+              "assets/upcoming_pickup.png",
+              fit: BoxFit.cover,
+              width: 300,
+            ),
+          ),
+          Gap(30),
+          Text(
+            "No Upcoming Pickups",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 24,
+              color: Colors.grey.withOpacity(.5),
+            ),
+          ),
+          Gap(10),
+          Container(
+            width: MediaQuery.of(context).size.width * .4,
+            child: TextButton(
+              onPressed: () {},
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.refresh, color: AppColors.primaryColor),
+                  Gap(5),
+                  Text(
+                    "Refresh",
+                    style: TextStyle(color: AppColors.primaryColor),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Expanded(child: Container()),
+        ],
       ),
     );
   }

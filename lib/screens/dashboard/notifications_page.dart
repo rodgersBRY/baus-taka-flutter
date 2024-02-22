@@ -57,87 +57,144 @@ class NotificationsPage extends StatelessWidget {
           ),
         ),
         actions: [
-          IconButton(
-            onPressed: () {
-              //   Navigator.of(context)
-              //       .push(MaterialPageRoute(builder: (context) => MyCartPage()));
-            },
-            icon: SvgPicture.asset(
-              "assets/icons/trash.svg",
-              width: 30,
-            ),
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
-            ),
-            color: Colors.black,
-          ),
+          _notifications.isEmpty
+              ? IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.refresh),
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.white),
+                  ),
+                  color: Colors.black,
+                )
+              : IconButton(
+                  onPressed: () {
+                    //   Navigator.of(context)
+                    //       .push(MaterialPageRoute(builder: (context) => MyCartPage()));
+                  },
+                  icon: SvgPicture.asset(
+                    "assets/icons/trash.svg",
+                    width: 30,
+                  ),
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.white),
+                  ),
+                  color: Colors.black,
+                ),
         ],
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 5),
-        child: ListView.builder(
-            itemCount: _notifications.length,
-            itemBuilder: (context, index) {
-              return Container(
-                padding: const EdgeInsets.all(15),
-                margin: const EdgeInsets.only(bottom: 20.0),
-                child: Row(
-                  children: [
-                    Container(
-                      child: Image.asset(
-                        _notifications[index].imageUrl,
-                        width: 70,
-                      ),
-                    ),
-                    Gap(10),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          _notifications[index].title,
-                          style: TextStyle(
-                              fontSize: 17, fontWeight: FontWeight.bold),
-                        ),
-                        Gap(5),
-                        Text(
-                          _notifications[index].subtitle,
-                          style: TextStyle(fontSize: 17),
-                        ),
-                        Gap(5),
-                        Row(
-                          children: [
-                            Icon(Icons.calendar_month),
-                            Gap(5),
-                            Text(
-                              _notifications[index].date,
-                              style: TextStyle(fontSize: 17),
+        child: _notifications.isEmpty
+            ? _noNotificationsContainer(context)
+            : Column(
+                children: [
+                  Gap(30),
+                  Expanded(
+                    child: ListView.builder(
+                        itemCount: _notifications.length,
+                        itemBuilder: (context, index) {
+                          return Container(
+                            padding: const EdgeInsets.all(15),
+                            margin: const EdgeInsets.only(
+                              bottom: 20.0,
+                              right: 5.0,
+                              left: 5.0,
                             ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    Expanded(child: Container()),
-                    CircleAvatar(
-                      child: Icon(Icons.chevron_right, color: Colors.white),
-                      backgroundColor: AppColors.primaryColor,
-                    )
-                  ],
-                ),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(15),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(.2),
-                      blurRadius: 6,
-                      spreadRadius: 2.0,
-                      offset: Offset(2, 2),
-                    ),
-                  ],
-                ),
-              );
-            }),
+                            child: Row(
+                              children: [
+                                Container(
+                                  child: Image.asset(
+                                    _notifications[index].imageUrl,
+                                    width: 70,
+                                  ),
+                                ),
+                                Gap(10),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      _notifications[index].title,
+                                      style: TextStyle(
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Gap(5),
+                                    Text(
+                                      _notifications[index].subtitle,
+                                      style: TextStyle(fontSize: 17),
+                                    ),
+                                    Gap(5),
+                                    Row(
+                                      children: [
+                                        Icon(Icons.calendar_month),
+                                        Gap(5),
+                                        Text(
+                                          _notifications[index].date,
+                                          style: TextStyle(fontSize: 17),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                Expanded(child: Container()),
+                                CircleAvatar(
+                                  child: Icon(Icons.chevron_right,
+                                      color: Colors.white),
+                                  backgroundColor: AppColors.primaryColor,
+                                )
+                              ],
+                            ),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(15),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(.2),
+                                  blurRadius: 6,
+                                  spreadRadius: 2.0,
+                                  offset: Offset(2, 2),
+                                ),
+                              ],
+                            ),
+                          );
+                        }),
+                  ),
+                ],
+              ),
       ),
+    );
+  }
+
+  Widget _noNotificationsContainer(BuildContext context) {
+    return Column(
+      children: [
+        Expanded(child: Container()),
+        Container(
+          child: Image.asset(
+            "assets/notification_error.png",
+            fit: BoxFit.cover,
+          ),
+        ),
+        Gap(30),
+        Container(
+          width: MediaQuery.of(context).size.width * .8,
+          child: Column(
+            children: [
+              Text(
+                "No new notifications",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.grey,
+                ),
+              )
+            ],
+          ),
+        ),
+        Expanded(child: Container()),
+      ],
     );
   }
 }

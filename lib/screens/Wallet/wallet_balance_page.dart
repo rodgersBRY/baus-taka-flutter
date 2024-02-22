@@ -19,7 +19,7 @@ class WalletBalancePage extends StatelessWidget {
         leading: Builder(builder: (BuildContext context) {
           return IconButton(
             onPressed: () {
-              // Navigator.of(context).pop();
+              Navigator.of(context).pop();
             },
             icon: Icon(
               Icons.chevron_left,
@@ -96,8 +96,8 @@ class WalletBalancePage extends StatelessWidget {
                           ),
                           child: ElevatedButton(
                             onPressed: () {
-                               Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => WalletDepositPage()));
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => WalletDepositPage()));
                             },
                             child: Text(
                               "Topup",

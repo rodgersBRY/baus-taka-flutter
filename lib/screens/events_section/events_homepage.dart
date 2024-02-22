@@ -49,226 +49,101 @@ class EventsHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 1,
-        leading: IconButton(
-          onPressed: () {},
-          icon: Icon(
-            Icons.chevron_left,
-            size: 30,
-          ),
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
-          ),
-          color: Colors.black,
-        ),
-        title: CustomSearchBar(
-          focusNode: searchFocusNode,
-          editingController: searchController,
-          hintText: "Search Events",
-        ),
-        actions: [
-          IconButton(
+    return GestureDetector(
+      onTap: () {
+        searchFocusNode.unfocus();
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          elevation: 1,
+          leading: IconButton(
             onPressed: () {
-              showModalBottomSheet(
-                  context: context,
-                  builder: (context) {
-                    return Container(
-                      width: double.infinity,
-                      child: Column(
-                        children: [
-                          Gap(20),
-                          // drag handle bar
-                          Center(
-                            child: Container(
-                              width: 70,
-                              height: 5,
-                              decoration: BoxDecoration(
-                                color: Colors.black54,
-                                borderRadius: BorderRadius.circular(12),
+              Navigator.of(context).pop();
+            },
+            icon: Icon(
+              Icons.chevron_left,
+              size: 30,
+            ),
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+            ),
+            color: Colors.black,
+          ),
+          title: CustomSearchBar(
+            focusNode: searchFocusNode,
+            editingController: searchController,
+            hintText: "Search Events",
+          ),
+          actions: [
+            IconButton(
+              onPressed: () {
+                showModalBottomSheet(
+                    context: context,
+                    builder: (context) {
+                      return Container(
+                        width: double.infinity,
+                        child: Column(
+                          children: [
+                            Gap(20),
+                            // drag handle bar
+                            Center(
+                              child: Container(
+                                width: 70,
+                                height: 5,
+                                decoration: BoxDecoration(
+                                  color: Colors.black54,
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
                               ),
                             ),
-                          ),
-                          Gap(50),
-                          Container(
-                            child: Image.asset("assets/reward.png"),
-                          ),
-                          TitleText(
-                            text: "Invite your friends",
-                            color: Colors.black,
-                            fontSize: 24,
-                          ),
-                          TitleText(
-                            text: "Get Rewarded",
-                            color: AppColors.primaryColor,
-                            fontSize: 20,
-                          ),
-                        ],
-                      ),
-                    );
-                  });
-            },
-            icon: SvgPicture.asset(
-              "assets/icons/fire.svg",
-              width: 30,
-            ),
-          ),
-        ],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(5.0),
-        child: Column(
-          children: [
-            Container(
-              margin: const EdgeInsets.symmetric(vertical: 15.0),
-              child: Row(
-                children: [
-                  Expanded(child: _outlinedButton(() {}, "All")),
-                  Gap(20),
-                  Expanded(child: _outlinedButton(() {}, "Upcoming")),
-                ],
+                            Gap(50),
+                            Container(
+                              child: Image.asset("assets/reward.png"),
+                            ),
+                            TitleText(
+                              text: "Invite your friends",
+                              color: Colors.black,
+                              fontSize: 24,
+                            ),
+                            TitleText(
+                              text: "Get Rewarded",
+                              color: AppColors.primaryColor,
+                              fontSize: 20,
+                            ),
+                          ],
+                        ),
+                      );
+                    });
+              },
+              icon: SvgPicture.asset(
+                "assets/icons/fire.svg",
+                width: 30,
               ),
             ),
-            Expanded(
-              child: ListView.builder(
-                itemCount: _eventItems.length,
-                itemBuilder: ((context, index) {
-                  return GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => EventsDetailsPage(
-                                event: _eventItems[index],
-                              )));
-                    },
-                    child: Container(
-                      height: 320,
-                      margin: const EdgeInsets.only(bottom: 30.0),
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(_eventItems[index].imageUrl),
-                          fit: BoxFit.cover,
-                        ),
-                        borderRadius: BorderRadius.circular(14),
-                      ),
-                      child: Column(
-                        children: [
-                          Container(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Container(
-                                  margin: const EdgeInsets.all(10.0),
-                                  padding: const EdgeInsets.all(10.0),
-                                  decoration: BoxDecoration(
-                                    color: Colors.grey.withOpacity(.6),
-                                    borderRadius: BorderRadius.circular(14),
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      Icon(
-                                        Icons.diversity_1_outlined,
-                                        color: Colors.white,
-                                      ),
-                                      Gap(4),
-                                      Text(
-                                        "32",
-                                        style: TextStyle(color: Colors.white),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  margin: const EdgeInsets.all(10.0),
-                                  padding: const EdgeInsets.all(10.0),
-                                  decoration: BoxDecoration(
-                                    color: Colors.grey.withOpacity(.6),
-                                    borderRadius: BorderRadius.circular(14),
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Icon(
-                                        Icons.share_outlined,
-                                        color: Colors.white,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Expanded(child: Container()),
-                          ClipRRect(
-                            child: BackdropFilter(
-                              filter:
-                                  ImageFilter.blur(sigmaX: 4.0, sigmaY: 4.0),
-                              child: Container(
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 10,
-                                  horizontal: 10,
-                                ),
-                                width: double.infinity,
-                                child: Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    TitleText(
-                                      text: _eventItems[index].title,
-                                      color: Colors.white,
-                                      fontSize: 20,
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Container(
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.end,
-                                            children: [
-                                              Icon(
-                                                Icons.location_on_outlined,
-                                                color: Colors.white,
-                                              ),
-                                              Gap(4),
-                                              Text(
-                                                _eventItems[index].location,
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Container(
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.end,
-                                            children: [
-                                              Icon(
-                                                Icons.event,
-                                                color: Colors.white,
-                                              ),
-                                              Gap(4),
-                                              Text(
-                                                _eventItems[index].date,
-                                                style: TextStyle(
-                                                  color: Colors.white,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                          GestureDetector(
+          ],
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(5.0),
+          child: Column(
+            children: [
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 15.0),
+                child: Row(
+                  children: [
+                    Expanded(child: _outlinedButton(() {}, "All")),
+                    Gap(20),
+                    Expanded(child: _outlinedButton(() {}, "Upcoming")),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: _eventItems.isEmpty
+                    ? _noEventsContainer()
+                    : ListView.builder(
+                        itemCount: _eventItems.length,
+                        itemBuilder: ((context, index) {
+                          return GestureDetector(
                             onTap: () {
                               Navigator.of(context).push(MaterialPageRoute(
                                   builder: (context) => EventsDetailsPage(
@@ -276,49 +151,223 @@ class EventsHomePage extends StatelessWidget {
                                       )));
                             },
                             child: Container(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 10.0),
+                              height: 320,
+                              margin: const EdgeInsets.only(bottom: 30.0),
                               decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.vertical(
-                                  bottom: Radius.circular(14),
+                                image: DecorationImage(
+                                  image:
+                                      AssetImage(_eventItems[index].imageUrl),
+                                  fit: BoxFit.cover,
                                 ),
-                                border: Border(
-                                  bottom: BorderSide(
-                                      color: AppColors.primaryColor, width: 2),
-                                  left: BorderSide(
-                                      color: AppColors.primaryColor, width: 2),
-                                  right: BorderSide(
-                                      color: AppColors.primaryColor, width: 2),
-                                ),
+                                borderRadius: BorderRadius.circular(14),
                               ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
+                              child: Column(
                                 children: [
-                                  Icon(Icons.add,
-                                      color: AppColors.primaryColor),
-                                  Gap(5),
-                                  Text(
-                                    "Join Event",
-                                    style: TextStyle(
-                                      color: AppColors.primaryColor,
-                                      fontWeight: FontWeight.bold,
+                                  Container(
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Container(
+                                          margin: const EdgeInsets.all(10.0),
+                                          padding: const EdgeInsets.all(10.0),
+                                          decoration: BoxDecoration(
+                                            color: Colors.grey.withOpacity(.6),
+                                            borderRadius:
+                                                BorderRadius.circular(14),
+                                          ),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            children: [
+                                              Icon(
+                                                Icons.diversity_1_outlined,
+                                                color: Colors.white,
+                                              ),
+                                              Gap(4),
+                                              Text(
+                                                "32",
+                                                style: TextStyle(
+                                                    color: Colors.white),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Container(
+                                          margin: const EdgeInsets.all(10.0),
+                                          padding: const EdgeInsets.all(10.0),
+                                          decoration: BoxDecoration(
+                                            color: Colors.grey.withOpacity(.6),
+                                            borderRadius:
+                                                BorderRadius.circular(14),
+                                          ),
+                                          child: Row(
+                                            children: [
+                                              Icon(
+                                                Icons.share_outlined,
+                                                color: Colors.white,
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Expanded(child: Container()),
+                                  ClipRRect(
+                                    child: BackdropFilter(
+                                      filter: ImageFilter.blur(
+                                          sigmaX: 4.0, sigmaY: 4.0),
+                                      child: Container(
+                                        padding: const EdgeInsets.symmetric(
+                                          vertical: 10,
+                                          horizontal: 10,
+                                        ),
+                                        width: double.infinity,
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            TitleText(
+                                              text: _eventItems[index].title,
+                                              color: Colors.white,
+                                              fontSize: 20,
+                                            ),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Container(
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.end,
+                                                    children: [
+                                                      Icon(
+                                                        Icons
+                                                            .location_on_outlined,
+                                                        color: Colors.white,
+                                                      ),
+                                                      Gap(4),
+                                                      Text(
+                                                        _eventItems[index]
+                                                            .location,
+                                                        style: TextStyle(
+                                                            color:
+                                                                Colors.white),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                Container(
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.end,
+                                                    children: [
+                                                      Icon(
+                                                        Icons.event,
+                                                        color: Colors.white,
+                                                      ),
+                                                      Gap(4),
+                                                      Text(
+                                                        _eventItems[index].date,
+                                                        style: TextStyle(
+                                                          color: Colors.white,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  EventsDetailsPage(
+                                                    event: _eventItems[index],
+                                                  )));
+                                    },
+                                    child: Container(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 10.0),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.vertical(
+                                          bottom: Radius.circular(14),
+                                        ),
+                                        border: Border(
+                                          bottom: BorderSide(
+                                              color: AppColors.primaryColor,
+                                              width: 2),
+                                          left: BorderSide(
+                                              color: AppColors.primaryColor,
+                                              width: 2),
+                                          right: BorderSide(
+                                              color: AppColors.primaryColor,
+                                              width: 2),
+                                        ),
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Icon(Icons.add,
+                                              color: AppColors.primaryColor),
+                                          Gap(5),
+                                          Text(
+                                            "Join Event",
+                                            style: TextStyle(
+                                              color: AppColors.primaryColor,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ],
                               ),
                             ),
-                          ),
-                        ],
+                          );
+                        }),
                       ),
-                    ),
-                  );
-                }),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
+    );
+  }
+
+  Widget _noEventsContainer() {
+    return Column(
+      children: [
+        Gap(80),
+        Container(
+          child: Image.asset(
+            "assets/not_found.png",
+            fit: BoxFit.cover,
+          ),
+        ),
+        Gap(30),
+        Text(
+          "No beach cleanup events",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 24,
+            color: Colors.black54,
+          ),
+        ),
+        Expanded(child: Container()),
+      ],
     );
   }
 

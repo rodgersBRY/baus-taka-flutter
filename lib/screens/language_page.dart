@@ -2,7 +2,7 @@ import 'package:baus_taka/widgets/shared_widgets/two_widget_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../utils/app_colors.dart';
+import '../utils/app_colors.dart';
 
 // ignore: must_be_immutable
 class LanguagePage extends StatelessWidget {
@@ -13,7 +13,7 @@ class LanguagePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: twoWidgetAppBar(title: "Langauge"),
+      appBar: twoWidgetAppBar(title: "Language", context: context),
       body: Obx(
         () => Column(
           children: [

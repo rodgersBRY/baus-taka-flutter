@@ -171,12 +171,15 @@ class ProductDetailsPage extends StatelessWidget {
             child: ReadMoreText(text: productText, maxLength: 350),
           ),
           Gap(30),
-          CustomButton(
-            onPressed: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => MyCartPage()));
-            },
-            title: "Add to cart",
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: CustomButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => MyCartPage()));
+              },
+              title: "Add to cart",
+            ),
           ),
         ],
       ),

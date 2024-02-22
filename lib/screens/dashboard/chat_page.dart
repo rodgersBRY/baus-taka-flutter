@@ -13,7 +13,7 @@ class ChatPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: twoWidgetAppBar(title: "Chat"),
+        appBar: twoWidgetAppBar(title: "Chat", context: context),
         bottomNavigationBar: BottomAppBar(
           color: Color.fromARGB(164, 211, 211, 211),
           child: Row(

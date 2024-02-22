@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 import '../../utils/app_colors.dart';
 
-AppBar twoWidgetAppBar({required String title}) {
+AppBar twoWidgetAppBar({required String title, required BuildContext context}) {
   return AppBar(
     centerTitle: true,
     backgroundColor: Colors.transparent,
     leading: IconButton(
       onPressed: () {
-        // Navigator.of(context).pop();
+        Navigator.of(context).pop();
       },
       icon: Icon(
         Icons.chevron_left,

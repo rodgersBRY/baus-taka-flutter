@@ -19,7 +19,7 @@ class ComingSoonPage extends StatelessWidget {
         searchFocusNode.unfocus();
       },
       child: Scaffold(
-        appBar: twoWidgetAppBar(title: "Coming Soon"),
+        appBar: twoWidgetAppBar(title: "Coming Soon", context: context),
         body: Column(
           children: [
             Expanded(child: Container()),

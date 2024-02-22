@@ -13,7 +13,7 @@ class ReviewProductsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: twoWidgetAppBar(title: "Review Products"),
+      appBar: twoWidgetAppBar(title: "Review Products", context: context),
       body: Container(
         padding: const EdgeInsets.all(8.0),
         child: Column(

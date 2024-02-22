@@ -1,3 +1,4 @@
+import 'package:baus_taka/screens/dashboard/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -67,7 +68,13 @@ class FeedbackSuccessPage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: CustomOutlinedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (context) => DashboardHomepage(),
+                        ),
+                      );
+                    },
                     title: "Home",
                   ),
                 ),

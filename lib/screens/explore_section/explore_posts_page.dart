@@ -31,7 +31,9 @@ class ExplorePostsPage extends StatelessWidget {
         centerTitle: true,
         elevation: 1,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
           icon: Icon(
             Icons.chevron_left,
             size: 30,
@@ -122,7 +124,7 @@ class ExplorePostsPage extends StatelessWidget {
             child: Obx(
               () => PageView(
                 children: [
-                  if (selectedContent.value == "Posts") _postsPageView(context),
+                  if (selectedContent.value == "Posts")  _postsPageView(context),
                   if (selectedContent.value == "Challenges")
                     ListView(
                       children: [

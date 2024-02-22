@@ -22,7 +22,7 @@ class UpdateProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: twoWidgetAppBar(title: "Update Profile"),
+      appBar: twoWidgetAppBar(title: "Update Profile", context: context),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 15),

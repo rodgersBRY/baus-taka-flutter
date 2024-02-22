@@ -11,8 +11,6 @@ class ExploreNothingFoundPage extends StatelessWidget {
   final FocusNode searchFocusNode = FocusNode();
   final TextEditingController searchController = TextEditingController();
 
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -13,6 +13,7 @@ import '../../models/notification_model.dart';
 import '../../utils/app_colors.dart';
 import '../../widgets/shared_widgets/bottom_navigation.dart';
 import '../../widgets/shared_widgets/title_text.dart';
+import '../pickups/pickups_homepage.dart';
 import './waste_manager_notifications_page.dart';
 
 class WasteManagerHomepage extends StatelessWidget {
@@ -147,7 +148,14 @@ class WasteManagerHomepage extends StatelessWidget {
               ),
             ),
             _drawerListTile(
-                icon: Icons.restore, label: "Pickups", onTap: () {}),
+              icon: Icons.restore,
+              label: "Pickups",
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => PickupsHomePage()));
+              },
+            ),
             _drawerListTile(
                 icon: Icons.business_center, label: "Jobs", onTap: () {}),
             _drawerListTile(

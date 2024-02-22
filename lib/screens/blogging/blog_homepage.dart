@@ -21,7 +21,9 @@ class BlogHomePage extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 1,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
           icon: Icon(
             Icons.chevron_left,
             size: 30,

@@ -2,6 +2,7 @@ import 'package:baus_taka/screens/blogging/blog_homepage.dart';
 import 'package:baus_taka/screens/dashboard/homepage.dart';
 import 'package:baus_taka/screens/ecoshop/homepage.dart';
 import 'package:baus_taka/screens/events_section/events_homepage.dart';
+import 'package:baus_taka/screens/explore_section/explore_posts_page.dart';
 import 'package:baus_taka/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -85,7 +86,11 @@ class CustomBottomBar extends StatelessWidget {
             ),
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => ExplorePostsPage()),
+        );
+            },
             child: Padding(
               padding: const EdgeInsets.only(left: 10.0),
               child: Column(

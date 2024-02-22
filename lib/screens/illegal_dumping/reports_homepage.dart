@@ -48,7 +48,9 @@ class ReportsHomePage extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 1,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
           icon: Icon(
             Icons.chevron_left,
             size: 30,
@@ -67,8 +69,8 @@ class ReportsHomePage extends StatelessWidget {
           TextButton(
             onPressed: () {
               Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => NewReportPage()),
-        );
+                MaterialPageRoute(builder: (context) => NewReportPage()),
+              );
             },
             child: Text(
               "Report",
