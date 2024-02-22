@@ -2,6 +2,7 @@
 
 import 'dart:ui';
 
+import 'package:baus_taka/screens/waste_manager/pickup_waste_page.dart';
 import 'package:baus_taka/widgets/shared_widgets/custom_orange_button.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -28,7 +29,9 @@ class JobDetailsPage extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 1,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
           icon: Icon(
             Icons.chevron_left,
             size: 30,
@@ -94,15 +97,16 @@ class JobDetailsPage extends StatelessWidget {
                               color: AppColors.gradientColor,
                             ),
                             child: ElevatedButton(
-                              onPressed: () {},
-                              child: Ink(
-                                child: Text(
-                                  "Accept",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20,
-                                  ),
+                              onPressed: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => PickupWastePage()));
+                              },
+                              child: Text(
+                                "Accept",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
                                 ),
                               ),
                               style: ElevatedButton.styleFrom(
@@ -242,7 +246,12 @@ class PanelWidget extends StatelessWidget {
               _summaryContainer(title: "Type of Waste", value: "Paper"),
               _summaryContainer(title: "No. of Waste Bags", value: "1"),
               Gap(10),
-              CustomOrangeButton(onPressed: () {}, title: "Cancel"),
+              CustomOrangeButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                title: "Cancel",
+              ),
             ],
           ),
         ),

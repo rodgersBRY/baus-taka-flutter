@@ -2,6 +2,7 @@
 
 import 'dart:ui';
 
+import 'package:baus_taka/screens/waste_manager/waste_pickup_summary_page.dart';
 import 'package:baus_taka/widgets/shared_widgets/outlined_button.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -13,6 +14,7 @@ import '../../utils/app_colors.dart';
 import '../../widgets/shared_widgets/custom_button.dart';
 import '../../widgets/shared_widgets/custom_input_text.dart';
 import '../../widgets/shared_widgets/title_text.dart';
+import '../subscriptions/select_subscription_page.dart';
 
 class PickupWastePage extends StatelessWidget {
   PickupWastePage({super.key});
@@ -165,8 +167,8 @@ class PanelWidget extends StatelessWidget {
             Gap(10),
             CustomOutlinedButton(
               onPressed: () {
-                // Navigator.of(context).push(MaterialPageRoute(
-                //     builder: (context) => SelectSubscriptionPage()));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => SelectSubscriptionPage()));
               },
               title: "Select",
             ),
@@ -195,8 +197,8 @@ class PanelWidget extends StatelessWidget {
                   Expanded(
                     child: CustomButton(
                       onPressed: () {
-                        // Navigator.of(context).push(MaterialPageRoute(
-                        //     builder: (context) => WasteSummaryPage()));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => WastePickupSummaryPage()));
                       },
                       title: "Next Step",
                     ),

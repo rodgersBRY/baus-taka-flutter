@@ -1,4 +1,5 @@
 import 'package:baus_taka/screens/dashboard/homepage.dart';
+import 'package:baus_taka/screens/waste_manager/waste_pickup_summary_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
         useMaterial3: true,
       ),
-      home: DashboardHomepage(),
+      home: WastePickupSummaryPage(),
     );
   }
 }

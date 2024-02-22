@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:baus_taka/screens/waste_manager/job_details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
@@ -26,7 +27,9 @@ class WastePickupJobsPage extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 1,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
           icon: Icon(
             Icons.chevron_left,
             size: 30,
@@ -67,8 +70,8 @@ class WastePickupJobsPage extends StatelessWidget {
                 itemBuilder: ((context, index) {
                   return GestureDetector(
                     onTap: () {
-                      // Navigator.of(context).push(MaterialPageRoute(
-                      //     builder: (context) => PickupDetailsPage()));
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => JobDetailsPage()));
                     },
                     child: Container(
                       height: 250,

@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:baus_taka/screens/waste_manager/started_waste_job_page.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
@@ -139,8 +140,96 @@ class WastePickupSummaryPage extends StatelessWidget {
                   Expanded(
                     child: CustomButton(
                       onPressed: () {
-                        // Navigator.of(context).push(MaterialPageRoute(
-                        //     builder: (context) => WasteSummaryPage()));
+                        showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                backgroundColor: Colors.white,
+                                title: Image.asset(
+                                  "assets/upcoming_pickup.png",
+                                  width: 60,
+                                ),
+                                content: Text(
+                                  "You are about to mark this request as started",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                                actions: [
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                          color: AppColors.primaryColor,
+                                          width: 2.0),
+                                      borderRadius: BorderRadius.circular(10),
+                                      color: Colors.white,
+                                    ),
+                                    child: ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                      child: Text(
+                                        "Cancel",
+                                        style: TextStyle(
+                                          color: AppColors.primaryColor,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20,
+                                        ),
+                                      ),
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: Colors.transparent,
+                                        elevation: 0,
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          const Color.fromARGB(
+                                              255, 58, 148, 61),
+                                          Color.fromARGB(255, 70, 197, 75),
+                                        ],
+                                        begin: Alignment.topCenter,
+                                        end: Alignment.bottomCenter,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10),
+                                      color: AppColors.gradientColor,
+                                    ),
+                                    child: ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    StartedWasteJobPage()));
+                                      },
+                                      child: Text(
+                                        "Start",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20,
+                                        ),
+                                      ),
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: Colors.transparent,
+                                        elevation: 0,
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              );
+                            });
                       },
                       title: "Start",
                     ),
