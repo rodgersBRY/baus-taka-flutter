@@ -443,18 +443,21 @@ class PanelWidget extends StatelessWidget {
                       Colors.green,
                       "Dispose Waste",
                       DisposeWasteHomepage(),
+                      "assets/dispose_waste.png",
                     ),
                     _panelTileItem(
                       context,
                       Colors.blue,
                       "Sell Plastic",
                       SellPlasticsHomepage(),
+                      "assets/sell_plastic.png",
                     ),
                     _panelTileItem(
                       context,
                       Colors.orange,
                       "Donate Plastic",
                       DonatePlasticsHomepage(),
+                      "assets/donate_plastic.png",
                     ),
                   ],
                 ),
@@ -472,8 +475,8 @@ class PanelWidget extends StatelessWidget {
     );
   }
 
-  Widget _panelTileItem(
-      BuildContext context, Color color, String title, Widget widget) {
+  Widget _panelTileItem(BuildContext context, Color color, String title,
+      Widget widget, String imagePath) {
     return GestureDetector(
       onTap: () {
         Navigator.of(context)
@@ -519,8 +522,8 @@ class PanelWidget extends StatelessWidget {
                     ),
                     child: ClipOval(
                       child: Image.asset(
-                        "assets/flask.webp",
-                        fit: BoxFit.cover,
+                        imagePath,
+                        width: 25,
                       ),
                     ),
                   ),
